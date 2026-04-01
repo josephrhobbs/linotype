@@ -161,23 +161,6 @@
     div.tile .desc {
         font-size: 30px;
     }
-
-    div.byline {
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: calc(100% - 384px);
-        min-height: 100px;
-        height: auto;
-        border-radius: 20px;
-        text-decoration: none;
-        color: black;
-        font-size: 24px;
-        font-family: "Computer Modern Sans", sans-serif;
-        margin-left: 192px;
-        margin-right: 192px;
-    }
 }
 
 @media screen and (max-device-width: 768px) {
@@ -283,22 +266,6 @@
     div.tile .desc {
         font-size: 36px;
     }
-
-    div.byline { display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: calc(100% - 96px);
-        min-height: 100px;
-        height: auto;
-        border-radius: 20px;
-        text-decoration: none;
-        color: black;
-        font-size: 48px;
-        font-family: "Computer Modern Sans", sans-serif;
-        margin-left: 48px;
-        margin-right: 48px;
-    }
 }
 
 @media print {
@@ -368,20 +335,5 @@
 
     div.tile .desc {
         font-size: 24px;
-    }
-
-    div.byline {
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        min-height: 100px;
-        height: auto;
-        border-radius: 20px;
-        text-decoration: none;
-        color: black;
-        font-size: 18px;
-        font-family: "Computer Modern Sans", sans-serif;
     }
 }

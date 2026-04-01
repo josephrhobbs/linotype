@@ -1,6 +1,6 @@
 [site]
 name = "Linotype"
-style = "book"
+style = "linotype"
 
 [menu]
 names = ["Home"]
