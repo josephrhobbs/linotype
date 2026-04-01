@@ -3,8 +3,8 @@ name = "Linotype"
 style = "book"
 
 [menu]
-names = []
-links = []
+names = ["Home"]
+links = ["/"]
 
 [media]
 include = [
