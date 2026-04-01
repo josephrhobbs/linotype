@@ -1,0 +1,387 @@
+:root {
+    --spaceblue: #212999;
+    --flamered: #ad2626;
+    --steelgray: #404040;
+}
+
+@font-face {
+    font-family: "Computer Modern Serif";
+    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunbi.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Computer Modern Serif";
+    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunbx.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Computer Modern Serif";
+    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunti.ttf");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Computer Modern Serif";
+    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunrm.ttf");
+}
+
+@font-face {
+    font-family: "Computer Modern Sans";
+    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunso.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Computer Modern Sans";
+    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunsx.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Computer Modern Sans";
+    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunsi.ttf");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Computer Modern Sans";
+    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunss.ttf");
+}
+
+@media screen and (min-device-width: 768px) {
+    /* For desktop */
+        
+    body {
+        font-family: "Computer Modern Serif", serif;
+        margin: 0px;
+        background-color: #f7f4ee;
+    }
+
+    h1 {
+        font-family: "Lexend", sans-serif;
+        font-size: 48px;
+        text-align: center;
+        background-color: var(--flamered);
+        color: white;
+        margin: 0px;
+        padding: 48px 0px 0px 0px;
+    }
+
+    h2 {
+        margin: 24px 192px 24px 192px;
+        font-family: "Lexend", sans-serif;
+        font-size: 32px;
+    }
+
+    h3 {
+        margin: 24px 192px 24px 192px;
+        font-family: "Lexend", sans-serif;
+        font-size: 24px;
+    }
+
+    p {
+        margin-left: 192px;
+        margin-right: 192px;
+        font-size: 24px;
+        text-indent: 48px;
+        line-height: 48px;
+        text-align: justify;
+    }
+
+    p a {
+        text-decoration: none;
+        color: var(--flamered);
+    }
+
+    div.menu {
+        font-family: "Computer Modern Sans", sans-serif;
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+        background-color: var(--flamered);
+        margin-bottom: 48px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+
+    div.menu a {
+        margin: 16px;
+        padding: 8px 20px;
+        text-decoration: none;
+        color: var(--flamered);
+        background-color: white;
+        border-radius: 16px;
+        transition: 0.8s;
+    }
+
+    div.menu a:hover {
+        color: var(--steelgray);
+        transition: 0.8s;
+    }
+
+    div.tile {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% - 384px);
+        min-height: 180px;
+        height: auto;
+        margin: 24px 192px 24px 192px;
+        border-radius: 20px;
+        text-decoration: none;
+        color: white;
+        background-color: var(--flamered);
+        font-size: 48px;
+        text-shadow: 0px 0px 8px black, -2px -2px 8px black, -2px 2px 8px black, 2px -2px 8px black, 2px 2px 8px black;
+        transition: 0.4s;
+        font-weight: 600;
+    }
+
+    .tile div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 0px;
+    }
+
+    div.tile:hover {
+        transition: 0.4s;
+        background-color: var(--steelgray);
+    }
+
+    div.tile .desc {
+        font-size: 30px;
+    }
+
+    div.byline {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: calc(100% - 384px);
+        min-height: 100px;
+        height: auto;
+        border-radius: 20px;
+        text-decoration: none;
+        color: black;
+        font-size: 24px;
+        font-family: "Computer Modern Sans", sans-serif;
+        margin-left: 192px;
+        margin-right: 192px;
+    }
+}
+
+@media screen and (max-device-width: 768px) {
+    /* For mobile */
+    
+    body {
+        font-family: "Computer Modern Serif", serif;
+        margin: 0px;
+        background-color: #f7f4ee;
+    }
+
+    h1 {
+        font-family: "Lexend", sans-serif;
+        font-size: 72px;
+        text-align: center;
+        background-color: var(--flamered);
+        color: white;
+        margin: 0px;
+        padding: 48px 0px 0px 0px;
+    }
+
+    h2 {
+        margin: 12px 48px 12px 48px;
+        font-family: "Lexend", sans-serif;
+        font-size: 60px;
+    }
+
+    h3 {
+        margin: 12px 48px 12px 48px;
+        font-family: "Lexend", sans-serif;
+        font-size: 48px;
+    }
+
+    p {
+        margin-left: 48px;
+        margin-right: 48px;
+        font-size: 48px;
+        text-indent: 48px;
+        line-height: 72px;
+        text-align: justify;
+    }
+
+    p a {
+        text-decoration: none;
+        color: var(--flamered);
+    }
+
+    div.menu {
+        font-family: "Computer Modern Sans", sans-serif;
+        display: flex;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        margin-bottom: 48px;
+        justify-content: center;
+        font-size: 42px;
+        background-color: var(--flamered);
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+
+    div.menu a {
+        margin: 8px 12px;
+        padding: 12px 24px;
+        border-radius: 24px;
+        text-decoration: none;
+        color: var(--flamered);
+        background-color: white;
+    }
+
+    div.tile {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% - 96px);
+        min-height: 180px;
+        height: auto;
+        margin: 12px 48px 12px 48px;
+        border-radius: 20px;
+        text-decoration: none;
+        color: white;
+        background-color: var(--flamered);
+        font-size: 52px;
+        text-shadow: 0px 0px 8px black, -2px -2px 8px black, -2px 2px 8px black, 2px -2px 8px black, 2px 2px 8px black;
+        transition: 0.4s;
+        font-weight: 600;
+    }
+
+    .tile div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 0px;
+    }
+
+    div.tile:hover {
+        transition: 0.4s;
+        background-color: var(--steelgray);
+    }
+
+    div.tile .desc {
+        font-size: 36px;
+    }
+
+    div.byline { display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: calc(100% - 96px);
+        min-height: 100px;
+        height: auto;
+        border-radius: 20px;
+        text-decoration: none;
+        color: black;
+        font-size: 48px;
+        font-family: "Computer Modern Sans", sans-serif;
+        margin-left: 48px;
+        margin-right: 48px;
+    }
+}
+
+@media print {
+    /* For print */
+    
+    body {
+        font-family: "Computer Modern Serif", serif;
+        margin: 48px;
+    }
+
+    h1 {
+        font-family: "Lexend", sans-serif;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    h2 {
+        font-family: "Lexend", sans-serif;
+        font-size: 24px;
+    }
+
+    h3 {
+        font-family: "Lexend", sans-serif;
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 18px;
+        text-indent: 36px;
+        line-height: 36px;
+        text-align: justify;
+    }
+
+    p a {
+        text-decoration: none;
+        color: var(--flamered);
+    }
+
+    div.menu {
+        display: none;
+    }
+
+    div.tile {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 180px;
+        height: auto;
+        border: 1px solid black;
+        border-radius: 20px;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .tile div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 0px;
+    }
+
+    div.tile .desc {
+        font-size: 24px;
+    }
+
+    div.byline {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 100px;
+        height: auto;
+        border-radius: 20px;
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        font-family: "Computer Modern Sans", sans-serif;
+    }
+}
