@@ -88,14 +88,12 @@
         margin: 24px 36px;
         text-decoration: none;
         color: var(--spaceblue);
-        transition: 0.8s;
         display: block;
     }
 
     div.menu a:hover {
         color: var(--steelgray);
         border-bottom: 2px solid var(--steelgray);
-        transition: 0.8s;
     }
 
     div.byline {
