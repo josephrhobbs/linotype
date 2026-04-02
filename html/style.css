@@ -106,21 +106,21 @@
     }
 }
 
+/*
 @media screen and (max-device-width: 768px) {
     /* For mobile */
     
     body {
         font-family: "Inter Tight", sans-serif;
         margin: 0px;
-        background-color: #f7f4ee;
+        background-color: #ffffff;
     }
 
     h1 {
         font-family: "Playfair", serif;
         font-size: 72px;
         text-align: center;
-        background-color: var(--flamered);
-        color: white;
+        color: #222222;
         margin: 0px;
         padding: 48px 0px 0px 0px;
     }
@@ -129,12 +129,14 @@
         margin: 12px 48px 12px 48px;
         font-family: "Playfair", serif;
         font-size: 60px;
+        color: #222222;
     }
 
     h3 {
         margin: 12px 48px 12px 48px;
         font-family: "Playfair", serif;
         font-size: 48px;
+        color: #222222;
     }
 
     p {
@@ -210,6 +212,7 @@
         font-size: 36px;
     }
 }
+*/
 
 @media print {
     /* For print */
