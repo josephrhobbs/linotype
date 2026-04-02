@@ -10,6 +10,7 @@
         font-family: "Inter Tight", sans-serif;
         margin: 0px;
         background-color: #ffffff;
+        color: #222222;
     }
 
     h1 {
@@ -229,22 +230,49 @@
     body {
         font-family: "Inter Tight", sans-serif;
         margin: 48px;
+        color: #222222;
     }
 
     h1 {
         font-family: "Playfair", serif;
         font-size: 32px;
         text-align: center;
+        color: #222222;
     }
 
     h2 {
-        font-family: "Playfair", serif;
+        font-family: "Inter Tight", sans-serif;
         font-size: 24px;
+        color: var(--spaceblue);
+        border-top: 1px solid rgba(17, 17, 17, 0.5);
+        padding-top: 18px;
     }
 
     h3 {
-        font-family: "Playfair", serif;
+        font-family: "Inter Tight", sans-serif;
+        font-size: 20px;
+        color: #222222;
+    }
+
+    h4 {
+        font-family: "Inter Tight", sans-serif;
         font-size: 18px;
+        color: var(--steelgray);
+        text-transform: uppercase;
+    }
+
+    h5 {
+        font-family: "Inter Tight", sans-serif;
+        font-size: 18px;
+        color: #222222;
+        text-transform: uppercase;
+    }
+
+    h6 {
+        font-family: "Inter Tight", sans-serif;
+        font-size: 16px;
+        color: var(--steelgray);
+        text-transform: uppercase;
     }
 
     p {
