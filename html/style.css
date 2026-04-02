@@ -4,65 +4,17 @@
     --steelgray: #404040;
 }
 
-@font-face {
-    font-family: "Computer Modern Serif";
-    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunbi.ttf");
-    font-weight: bold;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Computer Modern Serif";
-    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunbx.ttf");
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Computer Modern Serif";
-    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunti.ttf");
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Computer Modern Serif";
-    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunrm.ttf");
-}
-
-@font-face {
-    font-family: "Computer Modern Sans";
-    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunso.ttf");
-    font-weight: bold;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Computer Modern Sans";
-    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunsx.ttf");
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Computer Modern Sans";
-    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunsi.ttf");
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Computer Modern Sans";
-    src: url("https://raw.githubusercontent.com/josephrhobbs/computer-modern/master/cmunss.ttf");
-}
-
 @media screen and (min-device-width: 768px) {
     /* For desktop */
         
     body {
-        font-family: "Computer Modern Serif", serif;
+        font-family: "Inter Tight", sans-serif;
         margin: 0px;
         background-color: #f7f4ee;
     }
 
     h1 {
-        font-family: "Lexend", sans-serif;
+        font-family: "Playfair", serif;
         font-size: 48px;
         text-align: center;
         background-color: var(--flamered);
@@ -73,13 +25,13 @@
 
     h2 {
         margin: 24px 192px 24px 192px;
-        font-family: "Lexend", sans-serif;
+        font-family: "Playfair", serif;
         font-size: 32px;
     }
 
     h3 {
         margin: 24px 192px 24px 192px;
-        font-family: "Lexend", sans-serif;
+        font-family: "Playfair", serif;
         font-size: 24px;
     }
 
@@ -167,13 +119,13 @@
     /* For mobile */
     
     body {
-        font-family: "Computer Modern Serif", serif;
+        font-family: "Inter Tight", sans-serif;
         margin: 0px;
         background-color: #f7f4ee;
     }
 
     h1 {
-        font-family: "Lexend", sans-serif;
+        font-family: "Playfair", serif;
         font-size: 72px;
         text-align: center;
         background-color: var(--flamered);
@@ -184,13 +136,13 @@
 
     h2 {
         margin: 12px 48px 12px 48px;
-        font-family: "Lexend", sans-serif;
+        font-family: "Playfair", serif;
         font-size: 60px;
     }
 
     h3 {
         margin: 12px 48px 12px 48px;
-        font-family: "Lexend", sans-serif;
+        font-family: "Playfair", serif;
         font-size: 48px;
     }
 
@@ -272,23 +224,23 @@
     /* For print */
     
     body {
-        font-family: "Computer Modern Serif", serif;
+        font-family: "Inter Tight", sans-serif;
         margin: 48px;
     }
 
     h1 {
-        font-family: "Lexend", sans-serif;
+        font-family: "Playfair", serif;
         font-size: 32px;
         text-align: center;
     }
 
     h2 {
-        font-family: "Lexend", sans-serif;
+        font-family: "Playfair", serif;
         font-size: 24px;
     }
 
     h3 {
-        font-family: "Lexend", sans-serif;
+        font-family: "Playfair", serif;
         font-size: 18px;
     }
 
