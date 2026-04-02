@@ -2,6 +2,8 @@
 
 ~
 
+::byline[This is a byline][On a certain date]
+
 Hello, world!
 
 ## Header 2
