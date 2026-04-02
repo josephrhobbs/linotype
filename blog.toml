@@ -4,8 +4,8 @@ style = "linotype"
 icon = "favicon.ico"
 
 [menu]
-names = ["Home", "Research"]
-links = ["/", "/research"]
+names = ["Home", "About", "Research"]
+links = ["/", "/about", "/research"]
 
 [media]
 include = [
