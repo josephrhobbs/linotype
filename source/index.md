@@ -10,7 +10,7 @@ Hello, world!
 
 This is an interesting page with lots of cool math.  For example, here's Newton's law of gravitation!
 
-\[ \vec{F}_{12} = G m_1 m_2 \frac{\left( \vec{r}_2 - \vec{r}_1 \right)}{\left\Vert \vec{r}_2 - \vec{r}_1 \right\Vert^3} \]
+\[ \vec{F}_{12} = G m_1 m_2 \frac{\left( \vec{r}_2 - \vec{r}_1 \right)}{\left\Vert \vec{r}_2 - \vec{r}_1 \right\Vert^3} \tag{1} \]
 
 ### Header 3
 
