@@ -2,4 +2,4 @@
 
 ~
 
-Research areas will be here soon!
+More coming soon!
