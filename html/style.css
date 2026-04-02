@@ -235,7 +235,7 @@
 
     h1 {
         font-family: "Playfair", serif;
-        font-size: 32px;
+        font-size: 40px;
         text-align: center;
         color: #222222;
     }
@@ -244,7 +244,7 @@
         font-family: "Inter Tight", sans-serif;
         font-size: 24px;
         color: var(--spaceblue);
-        border-top: 1px solid rgba(17, 17, 17, 0.5);
+        border-top: 1px solid rgba(17, 17, 17, 0.3);
         padding-top: 18px;
     }
 
