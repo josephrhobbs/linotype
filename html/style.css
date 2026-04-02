@@ -1,5 +1,5 @@
 :root {
-    --spaceblue: #212999;
+    --flamered: #7b230b;
     --steelgray: #404040;
 }
 
@@ -25,7 +25,7 @@
     h2 {
         font-family: "Inter Tight", sans-serif;
         font-size: 28px;
-        color: var(--spaceblue);
+        color: var(--flamered);
         margin: 24px 25% 24px 25%;
         border-top: 1px solid rgba(17, 17, 17, 0.15);
         padding-top: 24px;
@@ -73,7 +73,7 @@
 
     p a {
         text-decoration: none;
-        color: var(--spaceblue);
+        color: var(--flamered);
     }
 
     div.menu {
@@ -90,7 +90,7 @@
     div.menu a {
         margin: 24px 36px;
         text-decoration: none;
-        color: var(--spaceblue);
+        color: var(--flamered);
         display: block;
         border-bottom: 2px solid #ffffff;
     }
@@ -108,7 +108,7 @@
         width: 50%;
         border-radius: 20px;
         text-decoration: none;
-        color: var(--spaceblue);
+        color: var(--flamered);
         font-size: 18px;
         font-family: "Inter Sans", sans-serif;
         font-weight: 600;
@@ -243,7 +243,7 @@
     h2 {
         font-family: "Inter Tight", sans-serif;
         font-size: 24px;
-        color: var(--spaceblue);
+        color: var(--flamered);
         border-top: 1px solid rgba(17, 17, 17, 0.3);
         padding-top: 18px;
     }
