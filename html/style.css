@@ -89,6 +89,7 @@
         text-decoration: none;
         color: var(--spaceblue);
         display: block;
+        border-bottom: 2px solid #ffffff;
     }
 
     div.menu a:hover {
