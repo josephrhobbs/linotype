@@ -24,7 +24,7 @@
     h2 {
         font-family: "Inter Tight", sans-serif;
         font-size: 28px;
-        color: #222222;
+        color: var(--spaceblue);
         margin: 24px 25% 24px 25%;
         border-top: 1px solid rgba(17, 17, 17, 0.15);
         padding-top: 24px;
