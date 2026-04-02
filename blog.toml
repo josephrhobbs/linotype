@@ -1,6 +1,7 @@
 [site]
 name = "Linotype"
 style = "linotype"
+icon = "favicon.ico"
 
 [menu]
 names = ["Home", "Research"]
