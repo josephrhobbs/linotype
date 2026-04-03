@@ -7,12 +7,12 @@ icon = "favicon.ico"
 names = [
     "Home",
     "About",
-    "Primal-Dual IPM",
+    "Reseach Area: Optimization",
 ]
 links = [
     "/",
     "/about",
-    "/pdipm",
+    "/optimization",
 ]
 
 [media]
