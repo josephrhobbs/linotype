@@ -10,6 +10,12 @@ At the same time, and without diminishing its nature as a technical reference, _
 
 That said, _the best way to understand_ Linotype _is to experience it_.  Please, have a look around!
 
+## Licensing
+
+All content on _Linotype_, unless otherwise indicated, is made available under the __CC BY-NC-SA 4.0__ license.  In simple terms, you may share, adapt, and redistribute the content for any non-commercial purpose, as long as you provide appropriate attribution.  You may read more about the license on the Creative Commons website:
+
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 ## What's in a name?
 
 In the later half of the 19th century, the information revolution took a turn.  Until 1886, the only printing technology available to humankind was the manual printing press, invented by Johannes Gutenberg.  Skilled typesetters had to painstakingly arrange every single letter in the printing press.  Printing was fast, but typesetting was agonizingly slow.
