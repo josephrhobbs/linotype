@@ -14,8 +14,8 @@ names = [
 links = [
     "/",
     "/about",
-    "/optimization",
-    "/stochastic-processes",
+    "/v0.1.0/optimization",
+    "/v0.1.0/stochastic-processes",
     "/contact",
 ]
 
