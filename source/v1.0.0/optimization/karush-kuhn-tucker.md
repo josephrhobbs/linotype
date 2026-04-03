@@ -30,9 +30,9 @@ Using this Lagrangian, we can derive the KKT conditions which are necessary (and
 
 We can find the optimum of the Lagrangian by solving for where its gradient vanishes.
 
-\[ \nabla L(x^\star, \lambda^\star, \nu^\star) = 0 \tag{4} \]
+\[ \nabla L(x, \lambda, \nu) = 0 \tag{4} \]
 
-\[ \therefore \nabla f(x^\star) + \sum_i \lambda_i^\star \nabla g_i(x^\star) + \sum_j \nu_j^\star \nabla h_j(x^\star) = 0 \tag{5} \]
+\[ \therefore \nabla f(x) + \sum_i \lambda_i \nabla g_i(x) + \sum_j \nu_j \nabla h_j(x) = 0 \tag{5} \]
 
 ### Primal Feasibility
 
@@ -58,7 +58,11 @@ There is one final constraint in the KKT conditions.  It is very important that 
 
 Combining (5), (6), (7), (8), and (9), we have the KKT conditions in their full glory.
 
-\[ \begin{align*} \nabla f(x^\star) + \sum_i \lambda_i^\star \nabla g_i(x^\star) + \sum_j \nu_j^\star \nabla h_j(x^\star) &= 0 \\ g_i(x) &\le 0 \\ h_j(x) &= 0 \\ \lambda_i &\ge 0 \\ \lambda_i g_i(x) &= 0 \end{align*} \]
+\[ \begin{align*} \nabla f(x^\star) + \sum_i \lambda_i^\star \nabla g_i(x^\star) + \sum_j \nu_j^\star \nabla h_j(x^\star) &= 0 \\ g_i(x^\star) &\le 0 \\ h_j(x^\star) &= 0 \\ \lambda_i^\star &\ge 0 \\ \lambda_i^\star g_i(x^\star) &= 0 \end{align*} \]
+
+These conditions are always __necessary conditions for global optimality__... that is, if the KKT conditions _aren't_ met for a given \( (x^\star, \lambda^\star, \nu^\star) \), then that point is definitely not the global optimum.  However, the KKT conditions are not always _sufficient_ conditions.  In convex programs, they are always necessary and sufficient, but in generalized, nonlinear, nonconvex optimization, they are only necessary, because nonconvex programs can have local optima that are not globally optimal.
+
+That said, the KKT conditions suggest a very natural approach to general nonlinear, nonconvex optimization.  A solver using the Primal-Dual Interior Point Method (PDIPM) iteratively solves a series of relaxations on the KKT conditions, successively "tightening" the conditions as it progresses, until it converges on a local optimum in _polynomial time_.  If the original problem was known to be convex, then _a PDIPM solver will find the global optimum for the original program_.
 
 ## References
 
