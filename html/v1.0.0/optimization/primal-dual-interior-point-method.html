@@ -41,10 +41,44 @@
 
 <div class="byline"><div>Joseph R. Hobbs</div><div>April 3, 2026</div></div>
 
-<p>The primal-dual interior point method...</p>
+<p>The <a href="karush-kuhn-tucker">Karush-Kuhn-Tucker conditions</a> (KKT conditions) for global optimality are</p>
+
+<p>\[ \begin{align*} \nabla f(x^\star) + \sum_i \lambda_i^\star \nabla g_i(x^\star) + \sum_j \nu_j^\star \nabla h_j(x^\star) &= 0, \\ g_i(x^\star) &\le 0, \\ h_j(x^\star) &= 0, \\ \lambda_i^\star &\ge 0, \\ \lambda_i^\star g_i(x^\star) &= 0. \end{align*} \]</p>
+
+<p>These suggest a very natural approach to solving a complex, potentially nonlinear, potentially nonconvex optimization.  Instead of solving the <em>primal</em> (original) problem, or the <em>dual</em> (Lagrangian) problem, what if we solve both at once?</p>
+
+<p>A very powerful tool in optimization for solving constrained second-order problems is <strong>Newton's method</strong>.  Newton's method is an iterative method for finding a local optimizer by sucessively computing second-order approximations of the objective function.  However, Newton's method only works with <em>equality</em> constraints, not <em>inequality</em> constraints.  Furthermore, the final constraint ("complementary slackness") is rather difficult to handle in practice, as it can induce numerical instability in KKT solvers.  We will need to develop clever workarounds for these two challenges before we can apply Newton's method.</p>
+
+<h2>Slack variables</h2>
+
+<p>There is an extremely simple way to convert an inequality into an equality.  Simply introduce a <strong>slack variable</strong> \( s_i \) for every inequality.  Then, require</p>
+
+<p>\[ g_i(x) + s_i = 0, \]</p>
+
+<p>and also constrain the slack variable to be nonnegative, ensuring that \( g_i(x) \le 0 \).</p>
+
+<p>\[ s_i \ge 0 \]</p>
+
+<p>If we replace every inequality in our original program with an equality, notice that the gradient of the Lagrangian doesn't change, because \( s_i \) is not a function of \( x \) and is therefore eliminated by the differentiation.  However, we <em>do</em> need to update the KKT conditions to include our new feasibility constraints.</p>
+
+<p>\[ \begin{align*} \nabla f(x^\star) + \sum_i \lambda_i^\star \nabla g_i(x^\star) + \sum_j \nu_j^\star \nabla h_j(x^\star) &= 0, \\ g_i(x^\star) + s_i &= 0, \\ h_j(x^\star) &= 0, \\ s_i &\ge 0, \\ \lambda_i^\star &\ge 0, \\ \lambda_i^\star g_i(x^\star) &= 0. \end{align*} \]</p>
+
+<p>Notice how we have added replaced the inequality constraint on \( g_i(x) \) with an equality constraint and a much simpler \( s_i \ge 0 \) constraint.  Now, all we need is a way to relax the complementary slackness constraint (\( \lambda_i g_i = 0 \)) to allow for numerical stability during solving.</p>
+
+<h2>Central path</h2>
+
+<p>The complementary slackness constraint (\( \lambda_i g_i = 0 \)) can often lead to numerical instability in Newton's method.  This is easily relaxed by replacing \( 0 \) with \( \mu \), a small positive constant.  This constant, called the <strong>barrier coefficient</strong>, represents the strength of "action at a distance" that the inequality constraints are allowed.  As a candidate solution approaches the inequality "barrier", the inequality barrier can "push" back on the solution.  As \( \mu \rightarrow 0 \), the barrier is allowed less and less "action at a distance" until it allows the candidate to rest right up against it.</p>
+
+<p>We call the series of candidate solutions, parameterized by \( \mu \rightarrow 0 \), the <strong>central path</strong> of the optimization program.  PDIPM solvers are guided by the central path, reducing \( \mu \) until the candidate solution may lie anywhere in the feasible set, including <em>right at the boundary</em> if it wishes.</p>
+
+<h2>One Newton step</h2>
+
+<p>We are now finally ready to apply Newton's method to the KKT conditions.</p>
+
+<p><em>TODO</em></p>
 
 <h2>References</h2>
 
-<p>Coming soon!</p></body>
+</body>
 
 </html>

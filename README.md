@@ -6,7 +6,7 @@ Please check it out on [linotype.pub](https://linotype.pub/)!
 
 ## Developer Note
 
-(for developers)
+_(for developers)_
 
 When updating the version of _Linotype_:
 
