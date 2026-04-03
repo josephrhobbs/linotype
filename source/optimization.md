@@ -16,7 +16,7 @@ Secondly, if the program is not convex, there exist efficient (read: polynomial-
 
 The Karush-Kuhn-Tucker conditions (KKT conditions) for optimality are the necessary conditions for global optimality.  In the case of convex programs, they are the necessary _and sufficient_ conditions for global optimality!
 
-[Reference: Karush-Kuhn-Tucker Conditions](/optimization/v0.1.0/kkt)
+[Reference: Karush-Kuhn-Tucker Conditions](/optimization/v0.1.0/karush-kuhn-tucker)
 
 The KKT conditions suggest an excellent way to solve nonlinear programs.  This is the _Primal-Dual Interior Point Method_ discussed below!
 
@@ -24,6 +24,6 @@ The KKT conditions suggest an excellent way to solve nonlinear programs.  This i
 
 The primal-dual interior point method (PDIPM) is a highly efficient algorithm for constrained optimization.
 
-[Reference: The Primal-Dual Interior Point Method](/optimization/v0.1.0/pdipm)
+[Reference: The Primal-Dual Interior Point Method](/optimization/v0.1.0/primal-dual-interior-point-method)
 
 The open-source solver [IPOPT](https://coin-or.github.io/Ipopt/) (pronounced "eye-pea-opt") performs highly efficient optimization on constrained nonlinear, nonconvex programs.  It is widely considered the academic and industry standard PDIPM solver.
