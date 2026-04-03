@@ -10,4 +10,4 @@ If you've been here before, please explore!
 
 __SemVer: 0.1.0__
 
-__DOI:__ _coming soon!_
+__DOI: coming soon!__
