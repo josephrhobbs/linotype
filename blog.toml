@@ -7,8 +7,8 @@ icon = "favicon.ico"
 names = [
     "Home",
     "About",
-    "Research Area: Optimization",
-    "Research Area: Stochastic Processes",
+    "Optimization",
+    "Stochastic Processes",
 ]
 links = [
     "/",
