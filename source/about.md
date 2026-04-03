@@ -2,7 +2,7 @@
 
 ~
 
-Linotype is an online, independent research publication at the intersection of robotics, classical and continuum mechanics, controls, and stochastic processes.  But Linotype is hardly a conventional publication.  It is two things at the same time: a __digital research archive__ and a __curated technical reference__.
+Linotype is an online, independent academic publication at the intersection of robotics, classical and continuum mechanics, controls, and stochastic processes.  But Linotype is hardly a conventional publication.  It is two things at the same time: a __digital research archive__ and a __curated technical reference__.
 
 It is better to explain the second one first.  Linotype is a __technical reference__ because the knowledge of a technical field deserves to be centralized.  I have searched for the same definition, rederived the same theorem, asked the same fundamental question so many times.  The process of strengthening your knowledge is valuable, but it's also exhausting.  For research to be disciplined, the fundamental theorems, derivations, and algorithms that power it need to be organized and clearly explained.  And research is a fundamentally collaborative process.  The growing number of open-access scientific and educational resources is growing at a rate like never before in this century thanks to the Internet, and it's accelerating research and spreading its influence wide in a way that we didn't previously think was possible.  For that reason, _Linotype provides an open-access, citable reference for a large body of theoretical work_.
 
