@@ -7,16 +7,19 @@ icon = "favicon.ico"
 names = [
     "Home",
     "About",
-    "Reseach Area: Optimization",
+    "Research Area: Optimization",
+    "Research Area: Stochastic Processes",
 ]
 links = [
     "/",
     "/about",
     "/optimization",
+    "/stochastic-processes",
 ]
 
 [media]
 include = [
+    "fokker-planck-equation.bib",
     "karush-kuhn-tucker.bib",
     "primal-dual-interior-point-method.bib",
 ]
