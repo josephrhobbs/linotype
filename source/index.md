@@ -8,6 +8,6 @@ If this is your first time, I invite you to learn more about _Linotype_ by readi
 
 If you've been here before, please explore!
 
-__SemVer: 0.1.1__
+__SemVer: 1.0.0__
 
 __DOI: coming soon!__
