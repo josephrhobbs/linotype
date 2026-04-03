@@ -21,7 +21,5 @@ links = [
 
 [media]
 include = [
-    "fokker-planck-equation.bib",
-    "karush-kuhn-tucker.bib",
-    "primal-dual-interior-point-method.bib",
+
 ]

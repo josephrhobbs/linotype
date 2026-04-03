@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this website in your academic work, please cite it as below!"
+authors:
+  - family-names: "Hobbs"
+    given-names: "Joseph Ross"
+    orcid: "https://orcid.org/0009-0007-5044-0935"
+title: "Linotype"
+version: 0.1.0
+date-released: 2026-04-03
+license: CC-BY-NC-SA-4.0
+keywords:
+  - "Research"
+  - "Open Science"
+url: "https://linotype.pub"
+repository-code: "https://github.com/josephrhobbs/linotype.git"
+type: software
