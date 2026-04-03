@@ -1,4 +1,4 @@
-# The Primal-Dual Interior Point Method
+# Primal-Dual Interior Point Method
 
 ~
 

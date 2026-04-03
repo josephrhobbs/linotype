@@ -24,6 +24,6 @@ The KKT conditions suggest an excellent way to solve nonlinear programs.  This i
 
 The primal-dual interior point method (PDIPM) is a highly efficient algorithm for constrained optimization.
 
-[Reference: The Primal-Dual Interior Point Method](/optimization/v0.1.0/primal-dual-interior-point-method)
+[Reference: Primal-Dual Interior Point Method](/optimization/v0.1.0/primal-dual-interior-point-method)
 
 The open-source solver [IPOPT](https://coin-or.github.io/Ipopt/) (pronounced "eye-pea-opt") performs highly efficient optimization on constrained nonlinear, nonconvex programs.  It is widely considered the academic and industry standard PDIPM solver.
