@@ -9,12 +9,14 @@ names = [
     "About",
     "Optimization",
     "Stochastic Processes",
+    "Contact",
 ]
 links = [
     "/",
     "/about",
     "/optimization",
     "/stochastic-processes",
+    "/contact",
 ]
 
 [media]
