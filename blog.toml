@@ -17,5 +17,6 @@ links = [
 
 [media]
 include = [
-
+    "karush-kuhn-tucker.bib",
+    "primal-dual-interior-point-method.bib",
 ]
