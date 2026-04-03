@@ -2,12 +2,8 @@
 
 ~
 
-More coming soon!
+Welcome to _Linotype_, and thank you for visiting!
 
-## About Linotype
+If this is your first time, I invite you to learn more about _Linotype_ by reading [About Linotype](/about).
 
-Linotype is a ... (more to come)
-
-## Acknowledgments
-
-Acknowledgments here.
+If you've been here before, please explore!
