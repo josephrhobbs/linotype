@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this website in your academic work, please cite it as below!"
+message: "If you use this website in your academic work, please cite it using its DOI!"
 authors:
   - family-names: "Hobbs"
     given-names: "Joseph Ross"
@@ -13,4 +13,4 @@ keywords:
   - "Open Science"
 url: "https://linotype.pub"
 repository-code: "https://github.com/josephrhobbs/linotype.git"
-type: software
+type: publication
