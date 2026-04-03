@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Robotics And Control | Linotype</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<link href="/prism.css" rel="stylesheet" />
+<script src="/prism.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+<h1>Robotics & Control</h1>
+
+<div class="menu">
+
+<a href="/">Home</a>
+
+<a href="/about">About</a>
+
+<a href="/v1.0.0/robotics-and-control">Robotics & Control</a>
+
+<a href="/v1.0.0/optimization">Optimization</a>
+
+<a href="/v1.0.0/stochastic-processes">Stochastic Processes</a>
+
+<a href="/contact">Contact</a>
+
+</div>
+
+
+
+<p>Contemporary research in robotics, particularly in bipedal or legged robotics, places an incredible emphasis on formal algorithms for <strong>control</strong>.  Fundamentally, the study of control, when applied to robotics, asks one of three questions.</p>
+
+<p>Firstly, how can a controller stabilize a system <em>about a provided fixed point</em>?</p>
+
+<p>Secondly, how can a controller stabilize a system <em>about a predetermined trajectory</em>?</p>
+
+<p>And finally, how can a controller stabilize a system <em>about a cycle</em>?</p>
+
+<p>Notice that the first question is rather a degenerate case of the other two, because a fixed point is a trajectory that goes nowhere, and a fixed point is also a cycle that does nothing interesting.  That said, these three questions call for rather different methods, which we explore here.</p>
+
+<p>Furthermore, what we know can dramatically shape the decisions we make about controller design.  If our dynamics are linear, the <strong>Linear Quadratic Regulator</strong> (LQR) is proven to be the optimal controller for a quadratic cost-to-go, and it demonstrates global asymptotic stability.  When dynamics are polynomial, <strong>Lyapnov analysis</strong> can provide globally asymptotically stable controllers, but they make no guarantees of optimality.  In the very worst case, when dynamics are extremely nonlinear or difficult to characterize, <strong>trajectory optimization</strong> can provide <em>locally</em> optimal trajectories, but they must often be stabilized by LQR or other controllers, as they make no guarantee of stability on their own.</p>
+
+<h2>Dynamic Programming</h2>
+
+<p>This is the ideal case in every control problem.  The mathematician Richard Bellman devised algorithms for determining optimal solutions to decision and control problems through the lens of <strong>dynamic programming</strong>.</p>
+
+<p><a href="robotics-and-control/dynamic-programming">Reference: Dynamic Programming</a></p>
+
+<h2>Lyapunov Analysis</h2>
+
+<p>Often, dynamic programming algorithms are intractable for complex, polynomial dynamics.  In this case, <strong>Lyapunov analysis</strong> allows a new perspective on control.  Instead of focusing on <em>optimality</em>, Lyapunov analysis focuses only on determining the <em>stability</em> of a controlled system.</p>
+
+<p><a href="robotics-and-control/lyapunov-analysis">Reference: Lyapunov Analysis</a></p>
+
+<h2>SOS Relaxations</h2>
+
+<p>The last few decades have yielded a number of wonderful algorithms that have drastically accelerated the field of control.  Notable among these are the methods introduced by P. Parrilo for <strong>sum-of-squares programming</strong> (SOS).  Parrilo's algorithms for SOS can find, <em>in polynomial time</em>, polynomials that are always nonnegative and satisfy given constraints.  However, SOS can leave a "gap"... there are some functions which are always nonnegative and satisfy the given constraints, but SOS cannot find them.  This reduces Lyapunov analysis to an SOS program.  If SOS programming finds a solution, the Lyapnov criteria are satisfied, and if SOS programming fails to find a solution, then the Lyapunov criteria <em>might not</em> be satisfied.</p>
+
+<p><a href="robotics-and-control/sum-of-squares-relaxations">Reference: SOS Relaxations</a></p>
+
+<h2>Trajectory Optimization</h2>
+
+<p>Unfortunately, despite how powerful dynamic programming can be, and despite the elegance of Lyapunov analysis and SOS, some problems simply refuse to admit these methods.  The most general, albeit least "powerful", method of control available to use is <strong>trajectory optimization</strong>.  Trajectory optimization determines locally optimal trajectories from a given starting point to a goal point (frequently a fixed point), or alternatively can be used to determine limit cycle trajectories ("oscillations").</p>
+
+<p>Trajectory optimization has three basic <em>transcriptions</em> (problem formulations).  These are rather unfortunately named <em>direct transcription</em>, <em>direct shooting</em>, and <em>direct collocation</em>.  The overloading of the adjective "<em>direct</em>" tends to cause confusion, so I have created separate articles for each one.</p>
+
+<p><a href="robotics-and-control/direct-transcription">Reference: Direct Transcription</a></p>
+
+<p><a href="robotics-and-control/direct-shooting">Reference: Direct Shooting</a></p>
+
+<p><a href="robotics-and-control/direct-collocation">Reference: Direct Collocation</a></p>
+
+<p>Trajectory optimization can be used for a variety of difficult problems and is found all over robotics engineering in the 21st century.  Nonlinear control problems, highly underactuated control problems, and control through contact can all be solved using trajectory optimization.</p>
+
+<p><em>TODO</em></p>
+
+<h2>References</h2>
+
+<p>A. Padoan. "Richard Bellman: The Father of Dynamic Programming." <em>inControl</em>, January 17, 2025. https://www.incontrolpodcast.com/1632769/episodes/16452722-ep29-richard-bellman-the-father-of-dynamic-programming (accessed April 3, 2026)</p>
+
+<p>P. Parrilo. "Structured Semidefinite Programs and Semialgebraic Geometry Manifolds in Robustness and Optimization." Ph.D. thesis, California Institute of Technology, Pasadena, CA, United States.</p></body>
+
+</html>

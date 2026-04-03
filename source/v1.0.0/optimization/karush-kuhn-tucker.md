@@ -66,4 +66,4 @@ That said, the KKT conditions suggest a very natural approach to general nonline
 
 ## References
 
-S. Boyd and L. Vandenberghe, _Convex Optimization_, Cambridge, UK: Cambridge University Press, 2004.
+S. Boyd and L. Vandenberghe. _Convex Optimization_. Cambridge University Press, Cambridge, UK, 2004.
