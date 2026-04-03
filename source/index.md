@@ -9,3 +9,5 @@ If this is your first time, I invite you to learn more about _Linotype_ by readi
 If you've been here before, please explore!
 
 __SemVer: 0.1.0__
+
+__DOI:__ _coming soon!_
