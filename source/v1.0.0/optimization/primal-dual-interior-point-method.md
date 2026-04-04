@@ -94,7 +94,7 @@ If this is your first introduction to PDIPM, I strongly encourage you to rederiv
 
 ### Determining step size
 
-By default, Newton's method involves solving (7) and updating according to \( x_{k+1} = k_k + \Delta x \) (and likewise for the other variables).  However, there's one problem with this.  We mustn't forget about (4) and (5), those two _inequalities_ on \( \Delta s_i \) and \( \Delta \lambda_i \), respectively.  It turns out that these put a limit on how large our step can be!
+By default, Newton's method involves solving (7) and updating according to \( x_{k+1} = x_k + \Delta x \) (and likewise for the other variables).  However, there's one problem with this.  We mustn't forget about (4) and (5), those two _inequalities_ on \( \Delta s_i \) and \( \Delta \lambda_i \), respectively.  It turns out that these put a limit on how large our step can be!
 
 _TODO_
 
