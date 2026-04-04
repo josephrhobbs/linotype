@@ -42,7 +42,7 @@ We begin by assuming that the optimal solution \( (x^\star, \lambda^\star, \nu^\
 
 ### Stationarity
 
-We first take second-order approximations for the _stationarity_ condition (gradient of the Lagrangian vanishes).
+We first take second-order approximation of the objective and first-order approximations of the constraints for the _stationarity_ condition (gradient of the Lagrangian vanishes).
 
 \[ \begin{multline*} \nabla f(x) + \nabla^2 f(x) \Delta x + \sum_i \lambda_i \nabla g_i(x) \\ + \sum_i \lambda_i \nabla^2 g_i(x) \Delta x + \sum_i \Delta \lambda_i \nabla g_i(x) + \sum_j \nu_j \nabla h_j(x) \\ + \sum_j \nu_j \nabla^2 h_j(x) \Delta x + \sum_j \Delta \nu_j \nabla h_j(x) = 0 \end{multline*} \tag{1} \]
 
@@ -50,13 +50,17 @@ Notice that we have dropped terms including the products of two updates.  At the
 
 ### Primal Feasibility
 
-We now account for primal feasibility...
+We now account for primal feasibility.  Our primal feasibility constraints are
 
-_TODO_
+\[ \begin{align*} g_i(x) + s_i &= 0, \\ h_j(x) &= 0, \\ s_i \ge 0. \end{align*} \]
+
+Taking first-order approximations of the constraints, we get
+
+\[ \begin{align*} g_i(x) + \nabla g_i(x) \Delta x + s_i + \Delta s_i &= 0, \tag{2} \\ h_j(x) + \nabla h_j \Delta x &= 0, \tag{3} \\ s_i + \Delta s_i \ge 0 \tag{4} \end{align*} \]
+
+For numerical stability (to ensure we never step outside the feasible region, even by a tiny bit) we'll relax (4) to \( s_i + \Delta s_i \ge (1 - \tau) s_i \), where \( \tau \) is a positive constant close to one (perhaps \( 1 - 10^{-3} \)).  Equations (2) and (3) will contribute to our linear system for the updates!
 
 ### Dual Feasibility
-
-Funnily enough, Newton's method actually does not support dual feasibility...
 
 _TODO_
 
