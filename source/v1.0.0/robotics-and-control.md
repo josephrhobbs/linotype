@@ -20,9 +20,13 @@ This is the ideal case in every control problem.  The mathematician Richard Bell
 
 [Reference: Dynamic Programming](robotics-and-control/dynamic-programming)
 
+In the case of linear dynamics, there exists a computationally tractable solution to the __Hamilton-Jacobi-Bellman equation__, the governing relation of dynamic programming.  This solution is called the __Linear Quadratic Regulator__ (LQR).
+
+[Reference: Linear Quadratic Regulators](robotics-and-control/linear-quadratic-regulators)
+
 ## Lyapunov Analysis
 
-Often, dynamic programming algorithms are intractable for complex, polynomial dynamics.  In this case, __Lyapunov analysis__ allows a new perspective on control.  Instead of focusing on _optimality_, Lyapunov analysis focuses only on determining the _stability_ of a controlled system.
+LQR is a wonderful special case of dynamic programming, but often, dynamic programming algorithms are intractable for complex, polynomial dynamics.  In this case, __Lyapunov analysis__ allows a new perspective on control.  Instead of focusing on _optimality_, Lyapunov analysis focuses only on determining the _stability_ of a controlled system.
 
 [Reference: Lyapunov Analysis](robotics-and-control/lyapunov-analysis)
 
