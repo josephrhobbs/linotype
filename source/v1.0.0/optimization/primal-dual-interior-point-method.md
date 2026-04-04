@@ -84,9 +84,9 @@ The _relaxed_ complementary slackness constraint \( \lambda_i g_i = -\mu \) (aga
 
 ### The full KKT system
 
-Combining (1), (2), (3), and (6), we have a linear system for \( (\Delta x, \Delta \lambda, \Delta \nu, \Delta s) \)!
+Combining (1), (2), (3), and (6), we have a linear system for \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \)!  For concise notation, I'll introduce \( L \) to denote the Lagrangian function (objective of the dual).  I'll also denote as \( \mathbf{1} \) the vector of necessary size containing all ones, and as \( I \) the identity matrix.
 
-\[ \begin{bmatrix} \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \lambda \\ \Delta \nu \\ \Delta s \end{bmatrix} = \begin{bmatrix} \end{bmatrix} \]
+\[ \begin{bmatrix} \nabla^2 L & \nabla h^\mathrm{T} & \nabla g^\mathrm{T} & 0 \\ \nabla h & 0 & 0 & 0 \\ \nabla g & 0 & 0 & I \\ 0 & 0 & I & S^{-1} \Lambda \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \nu \\ \Delta \lambda \\ \Delta s \end{bmatrix} = - \begin{bmatrix} \nabla L \\ h \\ g + s \\ \lambda - S^{-1} \mu \mathbf{1} \end{bmatrix} \]
 
 ## References
 
