@@ -8,6 +8,10 @@ Thank you for reading _Linotype_.  I'd love to hear from you.  I welcome suggest
 
 Please contact [editor@linotype.pub](mailto:editor@linotype.pub) with the subject line __SUGGESTION: your suggestion or report__.  I'll be happy to respond to you within the week.
 
+## Collaboration
+
+I'm also open to collaborating on research projects.  Please contant me at [editor@linotype.pub](mailto:editor@linotype.pub) with the subject line __COLLABORATION: title of your project__.
+
 ## Guest Content
 
 My goal is to make _Linotype_ a comprehensive, online reference for the intersection between "hardcore" engineering and "elegant" applied mathematics.  I greatly welcome submissions of guest content on _Linotype_ in any technical field related to robotics, mechanics, control theory, optimization, or the theories of probability and stochastic processes.  I'm also open to other technical content that doesn't fit those labels!
