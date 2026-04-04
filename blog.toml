@@ -21,6 +21,9 @@ links = [
     "/contact",
 ]
 
+[analytics]
+tag = "analytics.html"
+
 [media]
 include = [
 
