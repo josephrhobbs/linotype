@@ -56,7 +56,7 @@ We now account for primal feasibility.  Our primal feasibility constraints are
 
 Taking first-order approximations of the constraints, we get
 
-\[ \begin{align*} g_i(x) + \nabla g_i(x) \Delta x + s_i + \Delta s_i &= 0, \tag{2} \\ h_j(x) + \nabla h_j \Delta x &= 0, \tag{3} \\ s_i + \Delta s_i \ge 0 \tag{4} \end{align*} \]
+\[ \begin{align*} g_i(x) + \nabla g_i(x) \Delta x + s_i + \Delta s_i &= 0, \tag{2} \\ h_j(x) + \nabla h_j \Delta x &= 0, \tag{3} \\ s_i + \Delta s_i &\ge 0 \tag{4} \end{align*} \]
 
 For numerical stability (to ensure we never step outside the feasible region, even by a tiny bit) we'll relax (4) to \( s_i + \Delta s_i \ge (1 - \tau) s_i \), where \( \tau \) is a positive constant close to one (perhaps \( 1 - 10^{-3} \)).  Equations (2) and (3) will contribute to our linear system for the updates!
 
