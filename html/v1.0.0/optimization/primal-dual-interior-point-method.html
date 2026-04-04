@@ -98,7 +98,7 @@
 
 <p>Notice that we have dropped terms including the products of two updates.  At the sacrifice of some accuracy, this allows us to solve a linear system for \( ( \Delta x, \Delta \lambda, \Delta \nu) \).  Because of the convergence guarantees of Newton's method, we'll still be sure to find the local optimum after a few iterations.</p>
 
-<h3>Primal Feasibility</h3>
+<h3>Primal feasibility</h3>
 
 <p>We now account for primal feasibility.  Our primal feasibility constraints are</p>
 
@@ -110,7 +110,7 @@
 
 <p>For numerical stability (to ensure we never step outside the feasible region, even by a tiny bit) we'll relax (4) to \( s_i + \Delta s_i \ge (1 - \tau) s_i \), where \( \tau \) is a positive constant close to one (perhaps \( 1 - 10^{-3} \)).  Equations (2) and (3) will contribute to our linear system for the updates!</p>
 
-<h3>Dual Feasibility</h3>
+<h3>Dual feasibility</h3>
 
 <p>Recall that the dual feasibility constraint is</p>
 
@@ -126,7 +126,7 @@
 
 <p>for some \( \tau \) close to, but less than, unity.</p>
 
-<h3>Complementary Slackness</h3>
+<h3>Complementary slackness</h3>
 
 <p>The <em>relaxed</em> complementary slackness constraint \( \lambda_i g_i = -\mu \) (again, remember that \( \mu \) is a small positive constant called the <em>barrier coefficient</em>) can also be written with first-order approximations.  First, however, it is useful to replace \( g_i(x) \) with \( -s_i \), because at optimality, we expect \( g_i + s_i = 0 \).  Ignoring second-order terms, we have</p>
 
@@ -134,11 +134,23 @@
 
 <h3>The full KKT system</h3>
 
-<p>Combining (1), (2), (3), and (6), we have a linear system for \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \)!  For concise notation, I'll introduce \( L \) to denote the Lagrangian function (objective of the dual).  I'll also denote as \( \mathbf{1} \) the vector of necessary size containing all ones, and as \( I \) the identity matrix.</p>
+<p>Combining (1), (2), (3), and (6), we have a linear system for \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \)!  For concise notation, I'll introduce \( L \) to denote the Lagrangian function (objective of the dual).  I'll also denote as \( \mathbf{1} \) the vector of necessary size containing all ones, and as \( I \) the identity matrix.  Finally, I've collected \( s_i, \lambda_i, \nu_i \) into vectors \( s, \lambda, \nu \).</p>
 
-<p>\[ \begin{bmatrix} \nabla^2 L & \nabla h^\mathrm{T} & \nabla g^\mathrm{T} & 0 \\ \nabla h & 0 & 0 & 0 \\ \nabla g & 0 & 0 & I \\ 0 & 0 & I & S^{-1} \Lambda \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \nu \\ \Delta \lambda \\ \Delta s \end{bmatrix} + \begin{bmatrix} \nabla L \\ h \\ g + s \\ \lambda - S^{-1} \mu \mathbf{1} \end{bmatrix} = 0 \]</p>
+<p>\[ \begin{bmatrix} \nabla^2 L & \nabla h^\mathrm{T} & \nabla g^\mathrm{T} & 0 \\ \nabla h & 0 & 0 & 0 \\ \nabla g & 0 & 0 & I \\ 0 & 0 & I & S^{-1} \Lambda \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \nu \\ \Delta \lambda \\ \Delta s \end{bmatrix} + \begin{bmatrix} \nabla L \\ h \\ g + s \\ \lambda - S^{-1} \mu \mathbf{1} \end{bmatrix} = 0 \tag{7} \]</p>
 
 <p>I've also introduced here the matrices \( S \) and \( \Lambda \).  These are purely for convenience... they represent the diagonal matrices containing the entries of \( s \) and \( \lambda \), respectively, along their diagonals, and zero elsewhere.</p>
+
+<p>If this is your first introduction to PDIPM, I strongly encourage you to rederive (7) yourself.  Not only is it a satisfying exercise.  It will give you a lot of insight into how PDIPM solvers work, and where they fail!</p>
+
+<h3>Determining step size</h3>
+
+<p>By default, Newton's method involves solving (7) and updating according to \( x_{k+1} = k_k + \Delta x \) (and likewise for the other variables).  However, there's one problem with this.  We mustn't forget about (4) and (5), those two <em>inequalities</em> on \( \Delta s_i \) and \( \Delta \lambda_i \), respectively.  It turns out that these put a limit on how large our step can be!</p>
+
+<p><em>TODO</em></p>
+
+<h2>Backtracking</h2>
+
+<p><em>TODO</em></p>
 
 <h2>References</h2>
 

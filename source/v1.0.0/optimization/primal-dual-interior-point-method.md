@@ -48,7 +48,7 @@ We first take second-order approximation of the objective and first-order approx
 
 Notice that we have dropped terms including the products of two updates.  At the sacrifice of some accuracy, this allows us to solve a linear system for \( ( \Delta x, \Delta \lambda, \Delta \nu) \).  Because of the convergence guarantees of Newton's method, we'll still be sure to find the local optimum after a few iterations.
 
-### Primal Feasibility
+### Primal feasibility
 
 We now account for primal feasibility.  Our primal feasibility constraints are
 
@@ -60,7 +60,7 @@ Taking first-order approximations of the constraints, we get
 
 For numerical stability (to ensure we never step outside the feasible region, even by a tiny bit) we'll relax (4) to \( s_i + \Delta s_i \ge (1 - \tau) s_i \), where \( \tau \) is a positive constant close to one (perhaps \( 1 - 10^{-3} \)).  Equations (2) and (3) will contribute to our linear system for the updates!
 
-### Dual Feasibility
+### Dual feasibility
 
 Recall that the dual feasibility constraint is
 
@@ -76,7 +76,7 @@ We'll again relax this for numerical stability to
 
 for some \( \tau \) close to, but less than, unity.
 
-### Complementary Slackness
+### Complementary slackness
 
 The _relaxed_ complementary slackness constraint \( \lambda_i g_i = -\mu \) (again, remember that \( \mu \) is a small positive constant called the _barrier coefficient_) can also be written with first-order approximations.  First, however, it is useful to replace \( g_i(x) \) with \( -s_i \), because at optimality, we expect \( g_i + s_i = 0 \).  Ignoring second-order terms, we have
 
@@ -84,11 +84,23 @@ The _relaxed_ complementary slackness constraint \( \lambda_i g_i = -\mu \) (aga
 
 ### The full KKT system
 
-Combining (1), (2), (3), and (6), we have a linear system for \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \)!  For concise notation, I'll introduce \( L \) to denote the Lagrangian function (objective of the dual).  I'll also denote as \( \mathbf{1} \) the vector of necessary size containing all ones, and as \( I \) the identity matrix.
+Combining (1), (2), (3), and (6), we have a linear system for \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \)!  For concise notation, I'll introduce \( L \) to denote the Lagrangian function (objective of the dual).  I'll also denote as \( \mathbf{1} \) the vector of necessary size containing all ones, and as \( I \) the identity matrix.  Finally, I've collected \( s_i, \lambda_i, \nu_i \) into vectors \( s, \lambda, \nu \).
 
-\[ \begin{bmatrix} \nabla^2 L & \nabla h^\mathrm{T} & \nabla g^\mathrm{T} & 0 \\ \nabla h & 0 & 0 & 0 \\ \nabla g & 0 & 0 & I \\ 0 & 0 & I & S^{-1} \Lambda \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \nu \\ \Delta \lambda \\ \Delta s \end{bmatrix} + \begin{bmatrix} \nabla L \\ h \\ g + s \\ \lambda - S^{-1} \mu \mathbf{1} \end{bmatrix} = 0 \]
+\[ \begin{bmatrix} \nabla^2 L & \nabla h^\mathrm{T} & \nabla g^\mathrm{T} & 0 \\ \nabla h & 0 & 0 & 0 \\ \nabla g & 0 & 0 & I \\ 0 & 0 & I & S^{-1} \Lambda \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \nu \\ \Delta \lambda \\ \Delta s \end{bmatrix} + \begin{bmatrix} \nabla L \\ h \\ g + s \\ \lambda - S^{-1} \mu \mathbf{1} \end{bmatrix} = 0 \tag{7} \]
 
 I've also introduced here the matrices \( S \) and \( \Lambda \).  These are purely for convenience... they represent the diagonal matrices containing the entries of \( s \) and \( \lambda \), respectively, along their diagonals, and zero elsewhere.
+
+If this is your first introduction to PDIPM, I strongly encourage you to rederive (7) yourself.  Not only is it a satisfying exercise.  It will give you a lot of insight into how PDIPM solvers work, and where they fail!
+
+### Determining step size
+
+By default, Newton's method involves solving (7) and updating according to \( x_{k+1} = k_k + \Delta x \) (and likewise for the other variables).  However, there's one problem with this.  We mustn't forget about (4) and (5), those two _inequalities_ on \( \Delta s_i \) and \( \Delta \lambda_i \), respectively.  It turns out that these put a limit on how large our step can be!
+
+_TODO_
+
+## Backtracking
+
+_TODO_
 
 ## References
 
