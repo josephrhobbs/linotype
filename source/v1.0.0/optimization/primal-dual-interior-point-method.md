@@ -52,7 +52,7 @@ Notice that we have dropped terms including the products of two updates.  At the
 
 We now account for primal feasibility.  Our primal feasibility constraints are
 
-\[ \begin{align*} g_i(x) + s_i &= 0, \\ h_j(x) &= 0, \\ s_i \ge 0. \end{align*} \]
+\[ \begin{align*} g_i(x) + s_i &= 0, \\ h_j(x) &= 0, \\ s_i &\ge 0. \end{align*} \]
 
 Taking first-order approximations of the constraints, we get
 
