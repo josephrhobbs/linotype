@@ -88,5 +88,7 @@ Combining (1), (2), (3), and (6), we have a linear system for \( (\Delta x, \Del
 
 \[ \begin{bmatrix} \nabla^2 L & \nabla h^\mathrm{T} & \nabla g^\mathrm{T} & 0 \\ \nabla h & 0 & 0 & 0 \\ \nabla g & 0 & 0 & I \\ 0 & 0 & I & S^{-1} \Lambda \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \nu \\ \Delta \lambda \\ \Delta s \end{bmatrix} = - \begin{bmatrix} \nabla L \\ h \\ g + s \\ \lambda - S^{-1} \mu \mathbf{1} \end{bmatrix} \]
 
+I've also introduced here the matrices \( S \) and \( \Lambda \).  These are purely for convenience... they represent the diagonal matrices containing the entries of \( s \) and \( \lambda \), respectively, along their diagonals, and zero elsewhere.
+
 ## References
 
