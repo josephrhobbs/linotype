@@ -78,9 +78,11 @@
 
 <h2>SOS Relaxations</h2>
 
-<p>The last few decades have yielded a number of wonderful algorithms that have drastically accelerated the field of control.  Notable among these are the methods introduced by P. Parrilo for <strong>sum-of-squares programming</strong> (SOS).  Parrilo's algorithms for SOS can find, <em>in polynomial time</em>, polynomials that are always nonnegative and satisfy given constraints (Parrilo).  However, SOS can leave a "gap"... there are some functions which are always nonnegative and satisfy the given constraints, but SOS cannot find them.  This reduces Lyapunov analysis to an SOS program.  If SOS programming finds a solution, the Lyapnov criteria are satisfied, and if SOS programming fails to find a solution, then the Lyapunov criteria <em>might not</em> be satisfied.</p>
+<p>The last few decades have yielded a number of wonderful algorithms that have drastically accelerated the field of control.  Notable among these are the methods introduced by P. Parrilo for <strong>sum-of-squares programming</strong> (SOS).  Parrilo's algorithms for SOS can find, <em>in polynomial time</em>, polynomials that are always nonnegative and satisfy given constraints (Parrilo).  This reduces Lyapunov analysis to an SOS program.  If SOS programming finds a solution, the Lyapnov criteria are satisfied, and if SOS programming fails to find a solution, then the Lyapunov criteria <em>might not</em> be satisfied.</p>
 
 <p><a href="robotics-and-control/sum-of-squares-relaxations">Reference: SOS Relaxations</a></p>
+
+<p>It's important to recognize that SOS leaves a "gap".  There are some functions which are always nonnegative and satisfy the given constraints, but SOS programming cannot find them.  This is why, if SOS fails to find a solution, we cannot conclude if the Lyapunov criteria are satisfied or not.  Characterizing the SOS "gap" is still an open problem in the research or both semialgebraic geometry and controls engineering for robotics.  However, <em>empirically</em>, it's important to remember that the "gap" is "small" enough not to make a significant impact on the field's ability to use SOS programming, at least in a practical sense.</p>
 
 <h2>Trajectory Optimization</h2>
 

@@ -36,9 +36,7 @@ We call the series of candidate solutions, parameterized by \( \mu \rightarrow 0
 
 ## One Newton step
 
-We are now finally ready to apply Newton's method to the KKT conditions.
-
-_TODO_
+We are now finally ready to apply Newton's method to the KKT conditions.  Newton's method, as aforementioned, solves an optimization by computing second-order approximations.  These second-order approximations can be computed using _symbolic differentiation_ or _automatic differentiation_.  The use of _numerical differentiation_ (via the method of secants) is not recommended for Newton's method, as functions with high local curvature will not differentiate correctly.  We will assume that local first and second derivatives are available to use, perhaps by an automatic differe
 
 ## References
 
