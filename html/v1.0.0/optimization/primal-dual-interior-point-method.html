@@ -80,7 +80,7 @@
 
 <h2>Central path</h2>
 
-<p>The complementary slackness constraint (\( \lambda_i g_i = 0 \)) can often lead to numerical instability in Newton's method.  This is easily relaxed by replacing \( 0 \) with \( \mu \), a small positive constant.  This constant, called the <strong>barrier coefficient</strong>, represents the strength of "action at a distance" that the inequality constraints are allowed.  As a candidate solution approaches the inequality "barrier", the inequality barrier can "push" back on the solution.  As \( \mu \rightarrow 0 \), the barrier is allowed less and less "action at a distance" until it allows the candidate to rest right up against it.</p>
+<p>The complementary slackness constraint (\( \lambda_i g_i = 0 \)) can often lead to numerical instability in Newton's method.  This is easily relaxed by replacing \( 0 \) with \( -\mu \), where \( \mu \) is a small positive constant.  This constant, called the <strong>barrier coefficient</strong>, represents the strength of "action at a distance" that the inequality constraints are allowed.  As a candidate solution approaches the inequality "barrier", the inequality barrier can "push" back on the solution.  As \( \mu \rightarrow 0 \), the barrier is allowed less and less "action at a distance" until it allows the candidate to rest right up against it.  Because \( \lambda_i \) is nonnegative and \( g_i \) is nonpositive, we relax their product to a small negative number, rather than zero.</p>
 
 <p>We call the series of candidate solutions, parameterized by \( \mu \rightarrow 0 \), the <strong>central path</strong> of the optimization program.  PDIPM solvers are guided by the central path, reducing \( \mu \) until the candidate solution may lie anywhere in the feasible set, including <em>right at the boundary</em> if it wishes.</p>
 
@@ -106,19 +106,37 @@
 
 <p>Taking first-order approximations of the constraints, we get</p>
 
-<p>\[ \begin{align*} g_i(x) + \nabla g_i(x) \Delta x + s_i + \Delta s_i &= 0, \tag{2} \\ h_j(x) + \nabla h_j \Delta x &= 0, \tag{3} \\ s_i + \Delta s_i &\ge 0 \tag{4} \end{align*} \]</p>
+<p>\[ \begin{align*} g_i(x) + \nabla g_i(x) \Delta x + s_i + \Delta s_i &= 0, \tag{2} \\ h_j(x) + \nabla h_j \Delta x &= 0, \tag{3} \\ s_i + \Delta s_i &\ge 0. \tag{4} \end{align*} \]</p>
 
 <p>For numerical stability (to ensure we never step outside the feasible region, even by a tiny bit) we'll relax (4) to \( s_i + \Delta s_i \ge (1 - \tau) s_i \), where \( \tau \) is a positive constant close to one (perhaps \( 1 - 10^{-3} \)).  Equations (2) and (3) will contribute to our linear system for the updates!</p>
 
 <h3>Dual Feasibility</h3>
 
-<p><em>TODO</em></p>
+<p>Recall that the dual feasibility constraint is</p>
+
+<p>\[ \lambda_i \ge 0 . \]</p>
+
+<p>Taking a first-order approximation, we trivially have</p>
+
+<p>\[ \lambda_i + \Delta \lambda_i \ge 0. \tag{5} \]</p>
+
+<p>We'll again relax this for numerical stability to</p>
+
+<p>\[ \lambda_i + \Delta \lambda_i \ge (1 - \tau) \lambda_i \]</p>
+
+<p>for some \( \tau \) close to, but less than, unity.</p>
 
 <h3>Complementary Slackness</h3>
 
-<p>We account for complementary slackness...</p>
+<p>The <em>relaxed</em> complementary slackness constraint \( \lambda_i g_i = -\mu \) (again, remember that \( \mu \) is a small positive constant called the <em>barrier coefficient</em>) can also be written with first-order approximations.  First, however, it is useful to replace \( g_i(x) \) with \( -s_i \), because at optimality, we expect \( g_i + s_i = 0 \).  Ignoring second-order terms, we have</p>
 
-<p><em>TODO</em></p>
+<p>\[ \therefore \lambda_i s_i + \Delta \lambda_i s_i + \lambda_i \Delta s_i = \mu. \tag{6} \]</p>
+
+<h3>The full KKT system</h3>
+
+<p>Combining (1), (2), (3), and (6), we have a linear system for \( (\Delta x, \Delta \lambda, \Delta \nu, \Delta s) \)!</p>
+
+<p>\[ \begin{bmatrix} \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \lambda \\ \Delta \nu \\ \Delta s \end{bmatrix} = \begin{bmatrix} \end{bmatrix} \]</p>
 
 <h2>References</h2>
 
