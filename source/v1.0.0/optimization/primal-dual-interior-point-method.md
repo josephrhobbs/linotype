@@ -38,7 +38,15 @@ We call the series of candidate solutions, parameterized by \( \mu \rightarrow 0
 
 We are now finally ready to apply Newton's method to the KKT conditions.  Newton's method, as aforementioned, solves an optimization by computing second-order approximations.  These second-order approximations can be computed using _symbolic differentiation_ or _automatic differentiation_.  The use of _numerical differentiation_ (via the method of secants) is not recommended for Newton's method, as functions with high local curvature will not differentiate correctly.  We will assume that local first and second derivatives are available to use, perhaps by an automatic differentiation engine.
 
-We begin by assuming that the optimal solution \( (x^\star, \lamdba^\star, \nu^\star) \) is separated from our initial point \( (x, \lambda, \nu ) \) by some \( ( \Delta x, \Delta \lambda, \Delta \nu) \).  We can then solve for these values and update our guess.  We can then reduce \( \mu \) and repeat the process until we achieve all four KKT conditions within machine precision.  At this point, we declare \( (x, \lambda, \nu) \) a local optimizer!  And if we know that the KKT conditions are _sufficient_ as well as _necessary_ for our problem, then we have a global optimizer!
+We begin by assuming that the optimal solution \( (x^\star, \lambda^\star, \nu^\star) \) is separated from our initial point \( (x, \lambda, \nu ) \) by some \( ( \Delta x, \Delta \lambda, \Delta \nu) \).  We can then solve for these values and update our guess.  We can then reduce \( \mu \) and repeat the process until we achieve all four KKT conditions within machine precision.  At this point, we declare \( (x, \lambda, \nu) \) a local optimizer!  And if we know that the KKT conditions are _sufficient_ as well as _necessary_ for our problem, then we have a global optimizer!
+
+## Stationarity
+
+We first take second-order approximations for the _stationarity_ condition (gradient of the Lagrangian vanishes).
+
+\[ \begin{multline*} \nabla f(x) + \nabla^2 f(x) \Delta x + \sum_i \lambda_i \nabla g_i(x) + \sum_i \lambda_i \nabla^2 g_i(x) \Delta x + \sum_i \Delta \lambda_i \nabla g_i(x) \\ + \sum_j \nu_j \nabla h_j(x) + \sum_j \nu_j \nabla^2 h_j(x) \Delta x + \sum_j \Delta \nu_j \nabla h_j(x) &= 0 \end{multline*} \tag{1} \]
+
+Notice that we have dropped terms including the products of two updates.  At the sacrifice of some accuracy, this allows us to solve a linear system for \( ( \Delta x, \Delta \lambda, \Delta \nu) \).
 
 _TODO_
 
