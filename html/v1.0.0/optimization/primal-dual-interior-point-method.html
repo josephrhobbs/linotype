@@ -88,6 +88,8 @@
 
 <p>We are now finally ready to apply Newton's method to the KKT conditions.  Newton's method, as aforementioned, solves an optimization by computing second-order approximations.  These second-order approximations can be computed using <em>symbolic differentiation</em> or <em>automatic differentiation</em>.  The use of <em>numerical differentiation</em> (via the method of secants) is not recommended for Newton's method, as functions with high local curvature will not differentiate correctly.  We will assume that local first and second derivatives are available to use, perhaps by an automatic differentiation engine.</p>
 
+<p>We begin by assuming that the optimal solution \( (x^\star, \lamdba^\star, \nu^\star) \) is separated from our initial point \( (x, \lambda, \nu ) \) by some \( ( \Delta x, \Delta \lambda, \Delta \nu) \).  We can then solve for these values and update our guess.  We can then reduce \( \mu \) and repeat the process until we achieve all four KKT conditions within machine precision.  At this point, we declare \( (x, \lambda, \nu) \) a local optimizer!  And if we know that the KKT conditions are <em>sufficient</em> as well as <em>necessary</em> for our problem, then we have a global optimizer!</p>
+
 <p><em>TODO</em></p>
 
 <h2>References</h2>
