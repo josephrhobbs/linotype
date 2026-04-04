@@ -44,7 +44,7 @@ We begin by assuming that the optimal solution \( (x^\star, \lambda^\star, \nu^\
 
 We first take second-order approximations for the _stationarity_ condition (gradient of the Lagrangian vanishes).
 
-\[ \begin{multline*} \nabla f(x) + \nabla^2 f(x) \Delta x + \sum_i \lambda_i \nabla g_i(x) + \sum_i \lambda_i \nabla^2 g_i(x) \Delta x + \sum_i \Delta \lambda_i \nabla g_i(x) \\ + \sum_j \nu_j \nabla h_j(x) + \sum_j \nu_j \nabla^2 h_j(x) \Delta x + \sum_j \Delta \nu_j \nabla h_j(x) &= 0 \end{multline*} \tag{1} \]
+\[ \begin{multline*} \nabla f(x) + \nabla^2 f(x) \Delta x + \sum_i \lambda_i \nabla g_i(x) + \sum_i \lambda_i \nabla^2 g_i(x) \Delta x + \sum_i \Delta \lambda_i \nabla g_i(x) \\ + \sum_j \nu_j \nabla h_j(x) + \sum_j \nu_j \nabla^2 h_j(x) \Delta x + \sum_j \Delta \nu_j \nabla h_j(x) = 0 \end{multline*} \tag{1} \]
 
 Notice that we have dropped terms including the products of two updates.  At the sacrifice of some accuracy, this allows us to solve a linear system for \( ( \Delta x, \Delta \lambda, \Delta \nu) \).
 
