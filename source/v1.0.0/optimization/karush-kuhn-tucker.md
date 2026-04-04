@@ -52,7 +52,7 @@ As we mentioned before, it is necessary to constrain \( \lambda_i \ge 0 \).  Oth
 
 There is one final constraint in the KKT conditions.  It is very important that \( \lambda_i \) is nonzero _only when the constraint is active_ and \( g_i(x) = 0 \) (note the equality).  If \( \lambda_i \) can be strictly positive while \( g_i(x) < 0 \), then the Lagrangian is not optimal because \( \lambda_i \) can be decreased more!  We encode this requirement as
 
-\[ \lambda_i g_i(x) = 0 \tag{9} \]
+\[ \lambda_i g_i(x) = 0 . \tag{9} \]
 
 ## Final KKT Conditions
 
