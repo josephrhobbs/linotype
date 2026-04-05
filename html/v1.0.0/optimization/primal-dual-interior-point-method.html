@@ -206,7 +206,11 @@
 
 <p>Using our merit function, we perform a simple backtracking algorithm as follows.  First, let \( \alpha \gets \alpha_\mathrm{max} \) and define a positive coefficient \( k \) to be the <em>backtracking ratio</em>.  Then, compute \( m = m(x, s, \lambda) \) and \( m_\mathrm{new} = m(x + \alpha \Delta x, s + \alpha \Delta s, \lambda + \alpha \Delta \lambda) \).</p>
 
-<p>We now apply the <strong>Armijo condition</strong> to determine if our step is acceptable.  Define a small positive constant \( \eta \) (perhaps \( 10^{-4} \)).  Then, check if \( m_\mathrm{new} - m \le \eta \begin{bmatrix} \Delta x^\mathrm{T} & \Delta \nu^\mathrm{T} & \Delta \lambda^\mathrm{T} & \Delta s^\mathrm{T} \end{bmatrix} \nabla m(x, s, \lambda) \].  In other words, make sure that the merit function has decreased by <em>at least</em> \( \eta \) times the directional derivative of \( m \) in the direction of the step.  This ensures that, not only is the merit function decreasing, <em>it is decreasing by a sufficient amount to overcome both machine precision and the penalty of infeasibility</em>.</p>
+<p>We now apply the <strong>Armijo condition</strong> to determine if our step is acceptable.  Define a small positive constant \( \eta \) (perhaps \( 10^{-4} \)).  Then, check if</p>
+
+<p>\[ m_\mathrm{new} - m \le \eta \begin{bmatrix} \Delta x^\mathrm{T} & \Delta \nu^\mathrm{T} & \Delta \lambda^\mathrm{T} & \Delta s^\mathrm{T} \end{bmatrix} \nabla m(x, s, \lambda). \]</p>
+
+<p>In other words, make sure that the merit function has decreased by <em>at least</em> \( \eta \) times the directional derivative of \( m \) in the direction of the step.  This ensures that, not only is the merit function decreasing, <em>it is decreasing by a sufficient amount to overcome both machine precision and the penalty of infeasibility</em>.</p>
 
 <p>If the Armijo condition is satisfied, we accept \( \alpha \) and update \( (x, \nu, \lambda, s ) \).  If the Armijo condition is <em>not</em> satisfied, let \( \alpha \gets k \alpha \) (decrease the step size) and repeat the process until we find a satisfactory step size.</p>
 
