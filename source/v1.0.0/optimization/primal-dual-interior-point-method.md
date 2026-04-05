@@ -122,7 +122,7 @@ It is not difficult to solve this inequality on a computer.  Let \( s_i^-, \Delt
 
 ## Backtracking
 
-Now that we have a step _direction_ \( (\Delta x, \Delta nu, \Delta \lambda, \Delta s) \) and a maximum step _size_ \( \alpha_\mathrm{max} \), we can use a _backtracking algorithm_ to determine the optimal step size \( \alpha \).
+Now that we have a step _direction_ \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \) and a maximum step _size_ \( \alpha_\mathrm{max} \), we can use a _backtracking algorithm_ to determine the optimal step size \( \alpha \).
 
 ### Merit function
 

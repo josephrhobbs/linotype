@@ -20,6 +20,14 @@ where \( x_i, y_i \) are corresponding unit vectors in \( \mathbb{R}^3 \) and \(
 
 [Reference: Wahba's Problem](state-estimation/wahba's-problem)
 
+Since the 1960s, a variety of solution methods for Wahba's problem have emerged.  Three of the most notable are, in no particular order, the _Davenport q-method_, _singular value decomposition_, and _convex optimization_.
+
+[Reference: Davenport Q](state-estimation/davenport-q)
+
+[Reference: Singular Value Decomposition for Wahba's Problem](state-estimation/singular-value-decomposition)
+
+[Reference: Convex Optimization for Wahba's Problem](state-estimation/convex-optimization)
+
 ## References
 
 More coming soon!
