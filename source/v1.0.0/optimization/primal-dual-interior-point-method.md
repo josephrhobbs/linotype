@@ -96,7 +96,27 @@ If this is your first introduction to PDIPM, I strongly encourage you to rederiv
 
 By default, Newton's method involves solving (7) and updating according to \( x_{k+1} = x_k + \Delta x \) (and likewise for the other variables).  However, there's one problem with this.  We mustn't forget about (4) and (5), those two _inequalities_ on \( \Delta s_i \) and \( \Delta \lambda_i \), respectively.  It turns out that these put a limit on how large our step can be!
 
-_TODO_
+Our two inequalities, relaxed for numerical stability, are
+
+\[ \begin{align*} s_i + \Delta s_i &\ge (1 - \tau) s_i, \\ \lambda_i + \Delta \lambda_i &\ge (1 - \tau) \lambda_i. \end{align*} \]
+
+There are many ways to handle feasibility here.  The most simple approach (yet still very robust!) is to simply pick a "step size" \( \alpha \le 1 \) and perform the updates
+
+\[ \begin{align*} s_{k+1} &= s_k + \alpha \Delta s, \\ \lambda_{k+1} &= \lambda_k + \alpha \Delta \lambda. \end{align*} \]
+
+Of course the other variables \( x, \nu \) are also updated according to a rescaled step.  We can find the maximum permissible value of \( \alpha \) by using the two inequalities for primal and dual feasibility, respectively!
+
+\[ \begin{align*} s_i + \alpha \Delta s_i &\ge (1 - \tau) s_i, \\ \lambda_i + \alpha \Delta \lambda_i &\ge (1 - \tau) \lambda_i. \end{align*} \]
+
+Isolating \( \alpha \), we have (assuming \( \Delta s_i, \Delta \lambda_i < 0 \)) the inequalities
+
+\[ \begin{align*} \alpha &\le \frac{-\tau s_i}{\Delta s_i}, \\ \alpha &\le \frac{-\tau \lambda_i}{\Delta \lambda_i}, \\ \alpha &\ge 0 \\ \alpha &\le 1. \end{align*} \]
+
+Notice here that we divide by \( \Delta s_i \) and \( \Delta \lambda_i \), flipping the inequality.  Because the slack variables and Lagrange multipliers must always be positive, if we wish to make them _even more positive_, then we shouldn't restrict their step size.  However, if we wish to make them smaller (closer to zero, past which is the realm of infeasibility), then it is important to limit \( \alpha \).  We also include the \( \alpha \le 1 \) constraint to ensure that we do not take a step _larger_ than originally planned... only smaller.
+
+It is not difficult to solve this inequality on a computer.  Let \( s_i^-, \Delta s_i^- \) be the slack variables and changes in slack variables corresponding to \( i : \Delta s_i < 0 \), and define \( \lambda_i^-, \Delta \lambda_i^- \) similarly.  We can compute the maximum permissible \( \alpha \) using the vectorized
+
+\[ \alpha = \min\left( 1, \frac{-\tau s_i^-}{\Delta s_i^-}, \frac{-\tau \lambda_i^-}{\Delta \lambda_i^-} \right) . \tag{8} \]
 
 ## Backtracking
 
