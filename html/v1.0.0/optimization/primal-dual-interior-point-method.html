@@ -86,7 +86,7 @@
 
 <p>The complementary slackness constraint (\( \lambda_i g_i = 0 \)) can often lead to numerical instability in Newton's method.  This is easily relaxed by replacing \( 0 \) with \( -\mu \), where \( \mu \) is a small positive constant.  This constant, called the <strong>barrier coefficient</strong>, represents the strength of "action at a distance" that the inequality constraints are allowed.  As a candidate solution approaches the inequality "barrier", the inequality barrier can "push" back on the solution.  As \( \mu \rightarrow 0 \), the barrier is allowed less and less "action at a distance" until it allows the candidate to rest right up against it.  Because \( \lambda_i \) is nonnegative and \( g_i \) is nonpositive, we relax their product to a small negative number, rather than zero.</p>
 
-<p>We call the series of candidate solutions, parameterized by \( \mu \rightarrow 0 \), the <strong>central path</strong> of the optimization program.  PDIPM solvers are guided by the central path, reducing \( \mu \) until the candidate solution may lie anywhere in the feasible set, including <em>right at the boundary</em> if it wishes.</p>
+<p>We call the series of candidate solutions, parameterized by \( \mu \rightarrow 0 \), the <strong>central path</strong> of the optimization program.  PDIPM solvers are guided by the central path, reducing \( \mu \) until the candidate solution may lie anywhere in the feasible set, including <em>right at the boundary</em> if it wishes (Farina).</p>
 
 <h2>One Newton step</h2>
 
@@ -206,7 +206,7 @@
 
 <p>Using our merit function, we perform a simple backtracking algorithm as follows.  First, let \( \alpha \gets \alpha_\mathrm{max} \) and define a positive coefficient \( k \) to be the <em>backtracking ratio</em>.  Then, compute \( m = m(x, s, \lambda) \) and \( m_\mathrm{new} = m(x + \alpha \Delta x, s + \alpha \Delta s, \lambda + \alpha \Delta \lambda) \).</p>
 
-<p>We now apply the <strong>Armijo condition</strong> to determine if our step is acceptable.  Define a small positive constant \( \eta \) (perhaps \( 10^{-4} \)).  Then, check if</p>
+<p>We now apply the <strong>Armijo condition</strong> to determine if our step is acceptable (Burke).  Define a small positive constant \( \eta \) (perhaps \( 10^{-4} \)).  Then, check if</p>
 
 <p>\[ m_\mathrm{new} - m \le \eta \begin{bmatrix} \Delta x^\mathrm{T} & \Delta \nu^\mathrm{T} & \Delta \lambda^\mathrm{T} & \Delta s^\mathrm{T} \end{bmatrix} \nabla m(x, s, \lambda). \]</p>
 
@@ -220,12 +220,10 @@
 
 <p>Remember \( \mu \), our barrier coefficient?  This entire time, we've not even been solving the actual problem.  We've been solving a modified version of the problem, where the complementarity constraint \( \lambda_i s_i = 0 \) was relaxed to \( \lambda_i s_i = \mu \)!  Never fear.  After performing a single step, we can apply \( \mu \gets \sigma \lambda^\mathrm{T} s \), where \( \sigma \) is a small positive constant, ideally inversely proportional to the number of inequality constraints.  We can then perform another step with a new value for \( \mu \).  As we iterate, the <strong>duality gap</strong> \( \lambda^\mathrm{T} s \) should become smaller and smaller until it reaches below a specified tolerance (perhaps \( 10^{-6} \)).  At this point, we are confident to declare that <em>the duality gap is closed</em>, <em>the KKT conditions are met</em>, and the value \( (x, \nu, \lambda, s) \) is a local optimizer!</p>
 
-<h2>Algorithm summary</h2>
-
-<p><em>TODO</em></p>
-
 <h2>References</h2>
 
-<p>More coming soon!</p></body>
+<p>G. Farina. "Central path and interior-point methods." Course notes, Nonlinear Optimization, Sloan School of Management, Massachusetts Institute of Technology, Cambridge, MA, United States. (accessed April 5, 2026)</p>
+
+<p>J. Burke. "Backtracking Line Search." Course notes, Numerical Optimization, Department of Mathematics, University of Washington, Seattle, WA, United States. (accessed April 5, 2026)</p></body>
 
 </html>
