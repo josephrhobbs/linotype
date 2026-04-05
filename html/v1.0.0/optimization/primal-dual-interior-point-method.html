@@ -62,6 +62,8 @@
 
 <p>These suggest a very natural approach to solving a complex, potentially nonlinear, potentially nonconvex optimization.  Instead of solving the <em>primal</em> (original) problem, or the <em>dual</em> (Lagrangian) problem, what if we solve both at once?</p>
 
+<p>The <strong>primal-dual interior point method</strong> approaches nonlinear programming as follows.  First, using a second-order approximation, the solver determines the best direction and maximum allowable step size.  Then, the solver uses a <em>backtracking algorithm</em> to determine the <em>best</em> step size, which is not allowed to exceed the maximum allowable step size determined in the previous step.  Then, the solver applies that step, updating the "current guess".  This process is repeated until convergence.</p>
+
 <p>A very powerful tool in optimization for solving constrained second-order problems is <strong>Newton's method</strong>.  Newton's method is an iterative method for finding a local optimizer by sucessively computing second-order approximations of the objective function.  However, Newton's method only works with <em>equality</em> constraints, not <em>inequality</em> constraints.  Furthermore, the final constraint ("complementary slackness") is rather difficult to handle in practice, as it can induce numerical instability in KKT solvers.  We will need to develop clever workarounds for these two challenges before we can apply Newton's method.</p>
 
 <h2>Slack variables</h2>
@@ -162,7 +164,7 @@
 
 <p>Isolating \( \alpha \), we have (assuming \( \Delta s_i, \Delta \lambda_i < 0 \)) the inequalities</p>
 
-<p>\[ \begin{align*} \alpha &\le \frac{-\tau s_i}{\Delta s_i}, \\ \alpha &\le \frac{-\tau \lambda_i}{\Delta \lambda_i}, \\ \alpha &\ge 0 \\ \alpha &\le 1. \end{align*} \]</p>
+<p>\[ \begin{align*} \alpha &\le \frac{-\tau s_i}{\Delta s_i}, \\ \alpha &\le \frac{-\tau \lambda_i}{\Delta \lambda_i}, \\ \alpha &\ge 0, \\ \alpha &\le 1. \end{align*} \]</p>
 
 <p>Notice here that we divide by \( \Delta s_i \) and \( \Delta \lambda_i \), flipping the inequality.  Because the slack variables and Lagrange multipliers must always be positive, if we wish to make them <em>even more positive</em>, then we shouldn't restrict their step size.  However, if we wish to make them smaller (closer to zero, past which is the realm of infeasibility), then it is important to limit \( \alpha \).  We also include the \( \alpha \le 1 \) constraint to ensure that we do not take a step <em>larger</em> than originally planned... only smaller.</p>
 
@@ -171,6 +173,12 @@
 <p>\[ \alpha = \min\left( 1, \frac{-\tau s_i^-}{\Delta s_i^-}, \frac{-\tau \lambda_i^-}{\Delta \lambda_i^-} \right) . \tag{8} \]</p>
 
 <h2>Backtracking</h2>
+
+<p><em>TODO</em></p>
+
+<h2>Duality gap</h2>
+
+<p>Mind the gap...</p>
 
 <p><em>TODO</em></p>
 
