@@ -2,7 +2,7 @@
 
 ~
 
-::byline[Joseph R. Hobbs][April 3, 2026]
+::byline[Joseph R. Hobbs][April 5, 2026]
 
 The [Karush-Kuhn-Tucker conditions](karush-kuhn-tucker) (KKT conditions) for global optimality are
 
@@ -10,7 +10,7 @@ The [Karush-Kuhn-Tucker conditions](karush-kuhn-tucker) (KKT conditions) for glo
 
 These suggest a very natural approach to solving a complex, potentially nonlinear, potentially nonconvex optimization.  Instead of solving the _primal_ (original) problem, or the _dual_ (Lagrangian) problem, what if we solve both at once?
 
-The __primal-dual interior point method__ approaches nonlinear programming as follows.  First, using a second-order approximation, the solver determines the best direction and maximum allowable step size.  Then, the solver uses a _backtracking algorithm_ to determine the _best_ step size, which is not allowed to exceed the maximum allowable step size determined in the previous step.  Then, the solver applies that step, updating the "current guess".  This process is repeated until convergence.
+The __primal-dual interior point method__ approaches nonlinear programming as follows.  First, using a second-order approximation, the solver determines the best direction and maximum allowable step size.  Then, the solver uses a _line search algorithm_ to determine the _best_ step size, which is not allowed to exceed the maximum allowable step size determined in the previous step.  Then, the solver applies that step, updating the "current guess".  This process is repeated until convergence.
 
 A very powerful tool in optimization for solving constrained second-order problems is __Newton's method__.  Newton's method is an iterative method for finding a local optimizer by sucessively computing second-order approximations of the objective function.  However, Newton's method only works with _equality_ constraints, not _inequality_ constraints.  Furthermore, the final constraint ("complementary slackness") is rather difficult to handle in practice, as it can induce numerical instability in KKT solvers.  We will need to develop clever workarounds for these two challenges before we can apply Newton's method.
 
@@ -120,13 +120,13 @@ It is not difficult to solve this inequality on a computer.  Let \( s_i^-, \Delt
 
 \[ \alpha_\mathrm{max} = \min\left( 1, \frac{-\tau s_i^-}{\Delta s_i^-}, \frac{-\tau \lambda_i^-}{\Delta \lambda_i^-} \right) . \tag{8} \]
 
-## Backtracking
+## Line search
 
-Now that we have a step _direction_ \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \) and a maximum step _size_ \( \alpha_\mathrm{max} \), we can use a _backtracking algorithm_ to determine the optimal step size \( \alpha \).
+Now that we have a step _direction_ \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \) and a maximum step _size_ \( \alpha_\mathrm{max} \), we can use a _line search algorithm_ to determine the optimal step size \( \alpha \).
 
 ### Merit function
 
-One way to do this is using a _merit function_.  Many more modern solvers have moved on from merit functions, but this does not invalidate their usefulness and we can venture forward with confidence.  Our _merit function_ will be
+One way to perform line search is using a _merit function_.  Many more modern solvers have moved on from merit functions, but this does not invalidate their usefulness and we can venture forward with confidence.  Our _merit function_ will be
 
 \[ \begin{multline*} m(x, s, \lambda) = f(x) + \rho \sum_i \left\vert g_i(x) + s_i \right\vert + \rho \sum_j \left\vert h_i(x) \right\vert \\ - \mu \sum_i \log s_i - \mu \sum_i \log \lambda_i . \end{multline*} \tag{9} \]
 
@@ -134,7 +134,7 @@ This merit function is determined by summing the original objective with an _ada
 
 \[ \nabla f(x^\star) = - \sum_i \lambda_i^\star \nabla g_i(x^\star) - \sum_j \nu_j^\star \nabla h_j(x^\star) \]
 
-It is important that our step (let's call it \( \Delta \)) causes one of two things to happen... either the objective must decrease _or_ the objective must not increase while we must move closer to feasibility (and the constraints are "less" violated).  If both happen, that's great!  But if neither happen, we _definitely_ shouldn't accept the step.  Formally, this means that _the cost of increased constraint violation must exceed the benefit of a decreased objective_.  Because the KKT stationarity condition allows us to relate the gradient of the objective to the gradient of constraint violations, we can know exactly what \( \rho \) should be to enforce this.
+It is important that our step causes one of two things to happen... either the objective must decrease _or_ the objective must not increase while we must move closer to feasibility (and the constraints are "less" violated).  If both happen, that's great!  But if neither happen, we _definitely_ shouldn't accept the step.  Formally, this means that _the cost of increased constraint violation must exceed the benefit of a decreased objective_.  Because the KKT stationarity condition allows us to relate the gradient of the objective to the gradient of constraint violations, we can know exactly what \( \rho \) should be to enforce this.
 
 With the step \( \Delta x \), we expect the merit function to change by \( \nabla_x m \cdot \Delta x \), which is the _directional derivative_ of \( m \) in the direction of the step.  At optimality (when the KKT conditions are satisfied) we want this to _always be positive_ (the merit function increases away from the optimizer in every direction).  With some substitutions, we find that
 
@@ -150,9 +150,21 @@ Unfortunately, _we don't yet know_ the values \( \lambda^\star, \nu^\star \) bec
 
 where \( \varepsilon \) is a small positive constant (perhaps \( 10^{-3} \)).
 
-## Duality gap
+### Backtracking
 
-Mind the gap...
+Using our merit function, we perform a simple backtracking algorithm as follows.  First, let \( \alpha \gets \alpha_\mathrm{max} \) and define a positive coefficient \( k \) to be the _backtracking ratio_.  Then, compute \( m = m(x, s, \lambda) \) and \( m_\mathrm{new} = m(x + \alpha \Delta x, s + \alpha \Delta s, \lambda + \alpha \Delta \lambda \).
+
+We now apply the __Armijo condition__.  Define a small positive constant \( \eta \) (perhaps \( 10^{-4} \)).  Then, check if \( m_\mathrm{new} - m \le \eta \begin{bmatrix} \Delta x^\mathrm{T} & \Delta \nu^\mathrm{T} & \Delta \lambda^\mathrm{T} & \Delta s^\mathrm{T} \end{bmatrix} \nabla m(x, s, \lambda) \].  In other words, make sure that the merit function has decreased by _at least_ \( \eta \) times the directional derivative of \( m \) in the direction of the step.  This ensures that, not only is the merit function decreasing, _it is decreasing by a sufficient amount to overcome both machine precision and the penalty of infeasibility_.
+
+If the Armijo condition is satisfied, we accept \( \alpha \) and update \( (x, \nu, \lambda, s ) \).  If the Armijo condition is _not_ satisfied, let \( \alpha \gets k \alpha \) (decrease the step size) and repeat the process until we find a satisfactory step size.
+
+## Mind the duality gap
+
+We now have a complete algorithm for taking a single (modified) Newton step.  We solve a sparse linear system for \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \), determine \( \alpha_\mathrm{max} \), then use a backtracking algorithm and the Armijo condition to resolve a permissible step size.  We are only missing one thing!
+
+Remember \( \mu \), our barrier coefficient?  This entire time, we've not even been solving the actual problem.  We've been solving a modified version of the problem, where the complementarity constraint \( \lambda_i s_i = 0 \) was relaxed to \( \lambda_i s_i = \mu \)!  Never fear.  After performing a single step, we can apply \( \mu \gets \sigma \lambda^\mathrm{T} s \), where \( \sigma \) is a small positive constant, ideally inversely proportional to the number of inequality constraints.  We can then perform another step with a new value for \( \mu \).  As we iterate, the __duality gap__ \( \lambda^\mathrm{T} s \) should become smaller and smaller until it reaches below a specified tolerance (perhaps \( 10^{-6} \)).  At this point, we are confident to declare that _the duality gap is closed_, _the KKT conditions are met_, and the value \( (x, \nu, \lambda, s) \) is a local optimizer!
+
+## Algorithm summary
 
 _TODO_
 
