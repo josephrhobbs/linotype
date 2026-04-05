@@ -88,7 +88,7 @@ The _relaxed_ complementary slackness constraint \( \lambda_i g_i = -\mu \) (aga
 
 Combining (1), (2), (3), and (6), we have a linear system for \( (\Delta x, \Delta \nu, \Delta \lambda, \Delta s) \)!  For concise notation, I'll introduce \( L \) to denote the Lagrangian function (objective of the dual).  I'll also denote as \( \mathbf{1} \) the vector of necessary size containing all ones, and as \( I \) the identity matrix.  Finally, I've collected \( s_i, \lambda_i, \nu_i \) into vectors \( s, \lambda, \nu \).
 
-\[ \begin{bmatrix} \nabla^2 L & \nabla h^\mathrm{T} & \nabla g^\mathrm{T} & 0 \\ \nabla h & 0 & 0 & 0 \\ \nabla g & 0 & 0 & I \\ 0 & 0 & I & S^{-1} \Lambda \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \nu \\ \Delta \lambda \\ \Delta s \end{bmatrix} + \begin{bmatrix} \nabla L \\ h \\ g + s \\ \lambda - S^{-1} \mu \mathbf{1} \end{bmatrix} = 0 \tag{7} \]
+\[ \begin{bmatrix} \nabla^2 L & \nabla h & \nabla g & 0 \\ \nabla h^\mathrm{T} & 0 & 0 & 0 \\ \nabla g^\mathrm{T} & 0 & 0 & I \\ 0 & 0 & I & S^{-1} \Lambda \end{bmatrix} \begin{bmatrix} \Delta x \\ \Delta \nu \\ \Delta \lambda \\ \Delta s \end{bmatrix} + \begin{bmatrix} \nabla L \\ h \\ g + s \\ \lambda - S^{-1} \mu \mathbf{1} \end{bmatrix} = 0 \tag{7} \]
 
 I've also introduced here the matrices \( S \) and \( \Lambda \).  These are purely for convenience... they represent the diagonal matrices containing the entries of \( s \) and \( \lambda \), respectively, along their diagonals, and zero elsewhere.
 
@@ -116,13 +116,39 @@ Isolating \( \alpha \), we have (assuming \( \Delta s_i, \Delta \lambda_i < 0 \)
 
 Notice here that we divide by \( \Delta s_i \) and \( \Delta \lambda_i \), flipping the inequality.  Because the slack variables and Lagrange multipliers must always be positive, if we wish to make them _even more positive_, then we shouldn't restrict their step size.  However, if we wish to make them smaller (closer to zero, past which is the realm of infeasibility), then it is important to limit \( \alpha \).  We also include the \( \alpha \le 1 \) constraint to ensure that we do not take a step _larger_ than originally planned... only smaller.
 
-It is not difficult to solve this inequality on a computer.  Let \( s_i^-, \Delta s_i^- \) be the slack variables and changes in slack variables corresponding to \( i : \Delta s_i < 0 \), and define \( \lambda_i^-, \Delta \lambda_i^- \) similarly.  We can compute the maximum permissible \( \alpha \) using the vectorized
+It is not difficult to solve this inequality on a computer.  Let \( s_i^-, \Delta s_i^- \) be the slack variables and changes in slack variables corresponding to \( i : \Delta s_i < 0 \), and define \( \lambda_i^-, \Delta \lambda_i^- \) similarly.  We can compute \( \alpha_\mathrm{max} \) using the vectorized
 
-\[ \alpha = \min\left( 1, \frac{-\tau s_i^-}{\Delta s_i^-}, \frac{-\tau \lambda_i^-}{\Delta \lambda_i^-} \right) . \tag{8} \]
+\[ \alpha_\mathrm{max} = \min\left( 1, \frac{-\tau s_i^-}{\Delta s_i^-}, \frac{-\tau \lambda_i^-}{\Delta \lambda_i^-} \right) . \tag{8} \]
 
 ## Backtracking
 
-_TODO_
+Now that we have a step _direction_ \( (\Delta x, \Delta nu, \Delta \lambda, \Delta s) \) and a maximum step _size_ \( \alpha_\mathrm{max} \), we can use a _backtracking algorithm_ to determine the optimal step size \( \alpha \).
+
+### Merit function
+
+One way to do this is using a _merit function_.  Many more modern solvers have moved on from merit functions, but this does not invalidate their usefulness and we can venture forward with confidence.  Our _merit function_ will be
+
+\[ \begin{multline*} m(x, s, \lambda) = f(x) + \rho \sum_i \left\vert g_i(x) + s_i \right\vert + \rho \sum_j \left\vert h_i(x) \right\vert \\ - \mu \sum_i \log s_i - \mu \sum_i \log \lambda_i . \end{multline*} \tag{9} \]
+
+This merit function is determined by summing the original objective with an _adaptive L1 constraint penalty_ term and a _barrier_ term.  Here, \( \rho \) is a positive coefficient large enough to enforce the equality constraints \( g_i(x) + s_i = 0 \) and \( h_i(x) = 0 \).  We can decide on \( \rho \) by rearranging the KKT stationarity condition.
+
+\[ \nabla f(x^\star) = - \sum_i \lambda_i^\star \nabla g_i(x^\star) - \sum_j \nu_j^\star \nabla h_j(x^\star) \]
+
+It is important that our step (let's call it \( \Delta \)) causes one of two things to happen... either the objective must decrease _or_ we must move closer to feasibility (the constraints are "less" violated).  If both happen, that's great!  But if neither happen, we _definitely_ shouldn't accept the step.  Formally, this means that _the cost of increased constraint violation must exceed the benefit of a decreased objective_.  Because the KKT stationarity condition allows us to relate the gradient of the objective to the gradient of constraint violations, we can know exactly what \( \rho \) should be to enforce this.
+
+With the step \( \Delta x \), we expect the merit function to change by \( \nabla_x m \cdot \Delta x \), which is the _directional derivative_ of \( m \) in the direction of the step.  At optimality (when the KKT conditions are satisfied) we want this to _always be positive_ (the merit function increases away from the optimizer in every direction).  With some substitutions, we find that
+
+\[ \sum_i \rho + \sum_j \rho > \sum_i \lambda_i^\star + \sum_j \nu_j^\star \]
+
+which can be written far more succinctly as
+
+\[ \rho > \max\left( \lambda^\star, \nu^\star \right). \]
+
+Unfortunately, _we don't yet know_ the values \( \lambda^\star, \nu^\star \) because we haven't solved the optimization program!  In practice, we can use \( \lambda, \nu \) (our current best guess) and set
+
+\[ \rho = \max\left( \lambda, \nu \right) + \varepsilon \]
+
+where \( \varepsilon \) is a small positive constant (perhaps \( 10^{-3} \)).
 
 ## Duality gap
 
@@ -132,3 +158,4 @@ _TODO_
 
 ## References
 
+More coming soon!
