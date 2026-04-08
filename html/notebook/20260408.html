@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GL4VFN297F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GL4VFN297F');
+</script>
+
+
+<title>20260408 | Linotype</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<link href="/prism.css" rel="stylesheet" />
+<script src="/prism.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+<h1>Control through Contact</h1>
+
+<div class="menu">
+
+<a href="/">Home</a>
+
+<a href="/about">About</a>
+
+<a href="/v1.0.0/nonlinear-control">Nonlinear Control</a>
+
+<a href="/v1.0.0/optimization">Optimization</a>
+
+<a href="/contact">Contact</a>
+
+</div>
+
+
+
+<div class="byline"><div>Joseph Hobbs</div><div>April 8, 2026</div></div>
+
+<p>I've been thinking a lot about contact and complementarity constraints.  How do we build a solver that can <em>natively handle implicit contact</em> without convergence issues?</p>
+
+<h2>Purpose</h2>
+
+<p>In trajectory optimization, contact can either be modeled implicity or explicitly.  Explicit models for contact require <em>contact mode scheduling</em>... the solver must know which modes of contact occur and in what order they must occur.  This is rather difficult when you move to highly contact-rich systems.  How could you reasonably schedule contact in a centipede?  It'd be a disaster!</p>
+
+<p>Implicit contact sounds much better, but solvers struggle significantly with implicit contact.  Implicit contact is handled by adding the bilinear constraint \( f_i d_i = 0 \), where \( f_i \) is contact force and \( d_i \) is signed distance to contact.  It is also important to constrain \( f_i, d_i \ge 0 \).  This enforces no penetration, no attraction, and no action at a distance.</p>
+
+<h2>Methods</h2>
+
+<p><em>TODO</em></p>
+
+<h2>Observations</h2>
+
+<p><em>TODO</em></p>
+
+<h2>Interpretations</h2>
+
+<p><em>TODO</em></p>
+
+</body>
+
+</html>
