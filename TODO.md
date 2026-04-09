@@ -5,7 +5,7 @@
 ### Optimization
 
 - [x] Write KKT reference (April 4, 2026)
-- [ ] Write PDIPM reference (April 5, 2026)
+- [x] Write PDIPM reference (April 5, 2026)
 - [ ] Write B&B reference (April 6, 2026)
 - [ ] Write SDP reference (April 13, 2026)
 
@@ -35,3 +35,9 @@
 
 - [ ] Write Wiener processes reference
 - [ ] Write Fokker-Planck equation reference
+
+### Continuum Mechanics
+
+- [ ] Write truss FEA reference
+- [ ] Write plate FEA reference
+- [ ] Write 3D mesh FEA reference
