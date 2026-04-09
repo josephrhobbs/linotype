@@ -60,9 +60,13 @@
 
 <p>Implicit contact sounds much better, but solvers struggle significantly with implicit contact.  Implicit contact is handled by adding the bilinear constraint \( f_i d_i = 0 \), where \( f_i \) is contact force and \( d_i \) is signed distance to contact.  It is also important to constrain \( f_i, d_i \ge 0 \).  This enforces no penetration, no attraction, and no action at a distance.</p>
 
+<p>The constraints \( f_i, d_i \ge 0 \) are simple to enforce because they are linear inequalities.  The bilinear <em>equality</em> \( f_i d_i = 0 \) is nonconvex and difficult to implement in practice.  As \( f_i \rightarrow 0 \) or as \( d_i \rightarrow 0 \), there's a "sharp corner" in the feasible set, making optimization very difficult.</p>
+
 <h2>Methods</h2>
 
-<p><em>TODO</em></p>
+<p>This attempt at control through contact uses <strong>semidefinite relaxations of nonconvex programs</strong>.  For each time step, we define the matrix \( X_i \) according to</p>
+
+<p>\[ X_i := \begin{bmatrix} 1 & f_i & d_i \\ f_i & f_i^2 & f_i d_i \\ d_i & f_i d_i & d_i^2 \end{bmatrix} . \]</p>
 
 <h2>Observations</h2>
 
