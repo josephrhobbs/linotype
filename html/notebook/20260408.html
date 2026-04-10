@@ -66,7 +66,11 @@
 
 <p>This attempt at control through contact uses <strong>semidefinite relaxations of nonconvex programs</strong>.  For each time step, we define the matrix \( X_i \) according to</p>
 
-<p>\[ X_i := \begin{bmatrix} 1 & f_i & d_i \\ f_i & f_i^2 & f_i d_i \\ d_i & f_i d_i & d_i^2 \end{bmatrix} . \]</p>
+<p>\[ X_i := \begin{bmatrix} f_i^2 & f_i d_i \\ f_i d_i & d_i^2 \end{bmatrix} = \begin{bmatrix} f_i \\ d_i \end{bmatrix} \begin{bmatrix} f_i & d_i \end{bmatrix} . \]</p>
+
+<p>Here, \( d_i \) is constrained to be a function \( g : \mathbb{R}^n \rightarrow \mathbb{R} \) of the state vector \( x \).  The constraint that \( X_i \) is rank-1 is nonconvex, making global optimization very difficult.  This is often successfully relaxed to</p>
+
+<p>\[ X_i \succeq \begin{bmatrix} f_i \\ d_i \end{bmatrix} \begin{bmatrix} f_i & d_i \end{bmatrix} . \]</p>
 
 <h2>Observations</h2>
 
