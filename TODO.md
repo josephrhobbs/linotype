@@ -24,7 +24,10 @@
 ### State Estimation
 
 - [ ] Write Kalman filter reference
+- [ ] Write EKF/MEKF reference
 - [ ] Write truncated least squares estimation reference (adaptive voting)
+- [ ] Write factor graphs reference
+- [ ] Write SLAM reference
 - [ ] Write Wahba's problem reference
 - [ ] Write Davenport q-method reference
 - [ ] Write SVD reference
@@ -41,3 +44,9 @@
 - [ ] Write truss FEA reference
 - [ ] Write plate FEA reference
 - [ ] Write 3D mesh FEA reference
+- [ ] Write SIMP reference
+- [ ] Write vortex lattice reference
+- [ ] Write jet/vortex lattice reference
+- [ ] Write truss optimization (element sizing) reference
+- [ ] Write topology optimization reference
+- [ ] Write post-processing algorithms reference
