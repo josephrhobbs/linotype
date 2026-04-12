@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GL4VFN297F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GL4VFN297F');
+</script>
+
+
+<title>20260412 | Linotype</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<link href="/prism.css" rel="stylesheet" />
+<script src="/prism.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+<h1>Control through Contact</h1>
+
+<div class="menu">
+
+<a href="/">Home</a>
+
+<a href="/about">About</a>
+
+<a href="/v1.0.0/nonlinear-control">Nonlinear Control</a>
+
+<a href="/v1.0.0/optimization">Optimization</a>
+
+<a href="/contact">Contact</a>
+
+</div>
+
+
+
+<div class="byline"><div>Joseph Hobbs</div><div>April 12, 2026</div></div>
+
+<p>I've been thinking a lot about contact and complementarity constraints.  How do we build a solver that can <em>natively handle implicit contact</em> without convergence issues?</p>
+
+<h2>Purpose</h2>
+
+<p>In trajectory optimization, contact can either be modeled implicity or explicitly.  Explicit models for contact require <em>contact mode scheduling</em>... the solver must know which modes of contact occur and in what order they must occur.  This is rather difficult when you move to highly contact-rich systems.  How could you reasonably schedule contact in a centipede?  It'd be a disaster!</p>
+
+<p>Implicit contact sounds much better, but solvers struggle significantly with implicit contact.  Implicit contact is handled by adding the bilinear constraint \( f_i d_i = 0 \), where \( f_i \) is contact force and \( d_i \) is signed distance to contact.  It is also important to constrain \( f_i, d_i \ge 0 \).  This enforces no penetration, no attraction, and no action at a distance.</p>
+
+<p>The constraints \( f_i, d_i \ge 0 \) are simple to enforce because they are linear inequalities.  The bilinear <em>equality</em> \( f_i d_i = 0 \) is nonconvex and difficult to implement in practice.  As \( f_i \rightarrow 0 \) or as \( d_i \rightarrow 0 \), there's a "sharp corner" in the feasible set, making optimization very difficult.</p>
+
+<p>If we can build a solver that can natively handle these nonconvex constraints, especially as the number of complementarity constraints grows, we can more easily control contact-rich systems without the struggles associated to existing relaxation methods.</p>
+
+<h2>Methods</h2>
+
+<h3>Semidefinite programming</h3>
+
+<p>This attempt at control through contact uses <strong>semidefinite relaxations of nonconvex programs</strong>.  For each time step, we define the matrix \( X_i \) according to</p>
+
+<p>\[ X_i := \begin{bmatrix} f_i^2 & f_i d_i \\ f_i d_i & d_i^2 \end{bmatrix} = \begin{bmatrix} f_i \\ d_i \end{bmatrix} \begin{bmatrix} f_i & d_i \end{bmatrix} . \]</p>
+
+<p>Here, \( d_i \) is constrained to be a function \( g : \mathbb{R}^n \rightarrow \mathbb{R} \) of the state vector \( x \).  The constraint that \( X_i \) is rank-1 is nonconvex, making global optimization very difficult.  This is often successfully relaxed to</p>
+
+<p>\[ X_i \succeq \begin{bmatrix} f_i \\ d_i \end{bmatrix} \begin{bmatrix} f_i & d_i \end{bmatrix} . \]</p>
+
+<p>Our rank-1 constraint is now <em>forming the boundary of the new feasible region</em>.  If we can ensure that the optimization is <em>always forced to push the decision variables to the boundary of the new feasible region</em>, then our relaxation will be tight in general.  However, unlike the original constraint, this one is convex, which means we can use efficient interior-point methods (IPM) to solve the problem.</p>
+
+<h3>Schur complement for LMIs</h3>
+
+<p>The above constraint</p>
+
+<p>\[ X_i \succeq \begin{bmatrix} f_i \\ d_i \end{bmatrix} \begin{bmatrix} f_i & d_i \end{bmatrix} \]</p>
+
+<p>takes the form of a <strong>linear matrix inequality</strong> (LMI).  We can easily translate this into a constraint for a semidefinite solver by using the method of Schur complements.  In general,</p>
+
+<p>\[ \begin{bmatrix} A & B \\ C & D \end{bmatrix} \]</p>
+
+<p>is positive semidefinite <em>if and only if</em> the block \( A \) and its Schur complement are both positive semidefinite.</p>
+
+<p><em>TODO</em></p>
+
+<h3>Objective function</h3>
+
+<p>To ensure tightness of the semidefinite relaxation, the relaxation \( Z_i \succeq 0 \) must be accompanied by a linear constraint in \( Z_i \), to ensure that the constraint "presses" the optimize against the boundary of the feasible region.  Recall that the boundary of the feasible region is associated to rank-1 factorizations of \( Z_i \) and therefore systems obeying <em>implicit contact complementarity</em> at every point.</p>
+
+<p>\[ f_i d_i = 0,\and f_i \ge 0, \and d_i \ge 0. \]</p>
+
+<p>For now, we will focus only on <strong>trajectory discovery</strong>, in which all feasible trajectories are equally "optimal" with no regard to control inputs.  However, we cannot simply omit the objective function, because otherwise our solver might select an interior point of the feasible region, corresponding to a value of \( Z_i \) which has no rank-1 factorization.  One possible objective function is \( \sum_i d_i \).</p>
+
+<p>Notice that this insight reflects a fundamental property of <em>linear programs</em>... the optimizer of a linear program <em>always lies on the boundary of its feasible region</em>.  Because linear programs do not have any objective curvature, a solver will <em>always</em> push the optimizer all the way to the boundary.  This is critical to the tightness of a semidefinite relaxation.</p>
+
+<h2>Observations</h2>
+
+<p>Solving the program</p>
+
+<p>\[ \begin{align*} \min_{x_i, M_i} & \sum_i d_i \\ \text{s.t. } & x_{i+1} = f(x_i, f_i) \\ & x_0 = \text{initial conditions} \\ & M_i \succeq x_i x_i^\mathrm{T} \\ & f_i \ge 0 \\ & d_i \ge 0 \end{align*} \]</p>
+
+<p>actually leads to some reasonable results!  Interestingly, the semidefinite relaxation is most tight <em>during contact itself</em>.  We estimate the tightness of the relaxation by inspecting the singular values of \( M_i \).  We write these singular values as \( \sigma_1, \sigma_2, \sigma_3 \) in decreasing magnitude.  Rank-1 matrices have one nonzero singular value, so \( \sigma_2 / \sigma_1 \) should be zero for a rank-1 matrix and strictly positive for a rank-2 or rank-3 positive semidefinite matrix.  During contact, the SV ratio is approximately \( 0.05 \), while during noncontact the SV ratio becomes as high as 0.95.</p>
+
+<p>Another interesting, though predictable, result is a direct consequence of the objective itself and the unconstrained contact force.  Because the objective minimizes the signed distance to contact, the object stops moving at contact and remains on the contact surface.  Because the contact force was unconstrained, the program selected the contact force that would stop the body's movement entirely, keeping signed distance to contact at zero for the remainder of the program.  This is okay!  We did not require kinetic energy or momentum to be conserved... we only required that Newton's second law be obeyed at every time step.</p>
+
+<h2>Interpretations</h2>
+
+<p>Semidefinite relaxations for implicit contact show promise for a few reasons.  Firstly, as we add contact constraints, we are only adding more constraints of the form \( A \succeq 0 \) for a matrix of fixed size \( A \).  High-performance IPM solvers can be designed to handle large numbers of semidefinite constraints while ensuring that runtime scales linearly.  Multiple semidefinite constraints can be written as one large block matrix constraint, but the sparseness of this block matrix admits significant improvements.  This is a massive benefit compared to the <em>combinatorial nature of contact</em>... \( n \) opportunities for contact yields \( 2^n \) possible trajectories (contact/no-contact for each).</p>
+
+<p>Another benefit of semidefinite relaxations, compared to other methods for contact-implicit trajectory optimization (CITO), is that SDP does not introduce the possibly pathological curvature of other methods.  Some methods relax \( f_i d_i = 0 \) to \( f_i d_i \le \varepsilon \) for some small \( \varepsilon \ge 0 \).  This feasible region has extreme curvature at its border centered around \( f_i = d_i = \sqrt\varepsilon \).  As \( \varepsilon \rightarrow 0 \), the strong nonconvexity of the problem can yield poor results.</p></body>
+
+</html>
