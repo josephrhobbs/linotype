@@ -11,6 +11,11 @@ license: CC-BY-NC-SA-4.0
 keywords:
   - "Research"
   - "Open Science"
+  - "Robotics"
+  - "Control"
+  - "Optimization"
+  - "Estimation"
+  - "Learning"
 url: "https://linotype.pub"
 repository-code: "https://github.com/josephrhobbs/linotype.git"
 type: software

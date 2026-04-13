@@ -6,7 +6,7 @@ Tightly coupled with the study of control is the study of __state estimation__. 
 
 ## Kalman filter
 
-The __Kalman filter__ is the "holy grail" of time-domain state estimation.
+The __Kalman filter__ is the classical "holy grail" of time-domain state estimation.
 
 [Reference: Kalman Filter](state-estimation/kalman-filter)
 
@@ -27,6 +27,10 @@ Since the 1960s, a variety of solution methods for Wahba's problem have emerged.
 [Reference: Singular Value Decomposition for Wahba's Problem](state-estimation/singular-value-decomposition)
 
 [Reference: Convex Optimization for Wahba's Problem](state-estimation/convex-optimization)
+
+## Factor graphs
+
+_TODO_
 
 ## References
 
