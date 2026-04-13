@@ -10,4 +10,4 @@ This synthesis process takes place over many iterations at different time scales
 
 ## April 2026
 
-[Notebook Entry: April 8, 2026](/notebook/20260408)
+[Notebook Entry: April 12, 2026](/notebook/20260412)
