@@ -14,7 +14,7 @@ Additionally, the following resources are excellent for foundational material.
 
 [Visual Navigation](https://vnav.mit.edu/)
 
-## Certifiable perception
+## Certifiable perception & estimation
 
 [A Quaternion-based Certifiably Optimal Solution to the Wahba Problem with Outliers](https://arxiv.org/pdf/1905.12536)
 
@@ -23,6 +23,12 @@ Additionally, the following resources are excellent for foundational material.
 [A Certifiable Algorithm for Simultaneous Shape Estimation and Object Tracking](https://arxiv.org/pdf/2406.16837)
 
 [Global Optimality by Surfing SO(p)^n](https://arxiv.org/pdf/2008.02737)
+
+[A Certifiably Correct Algorithm for Synchronization over the Special Euclidean Group](https://arxiv.org/pdf/1612.07386)
+
+[Certifiable Estimation with Factor Graphs](https://arxiv.org/pdf/2603.01267)
+
+[Implementing Robust M-Estimators with Certifiable Factor Graph Optimization](https://arxiv.org/pdf/2603.20932)
 
 ## Learning-based control
 
