@@ -30,6 +30,8 @@ Additionally, the following resources are excellent for foundational material.
 
 [Implementing Robust M-Estimators with Certifiable Factor Graph Optimization](https://arxiv.org/pdf/2603.20932)
 
+[On-Manifold Preintegration for Real-Time Visual-Inertial Odometry](https://arxiv.org/pdf/1512.02363)
+
 ## Learning-based control
 
 [Visuomotor Policy Learning via Action Diffusion](https://arxiv.org/pdf/2303.04137)
@@ -49,3 +51,7 @@ Additionally, the following resources are excellent for foundational material.
 [Implicit Primal-Dual Interior-Point Methods for Quadratic Programming](https://arxiv.org/pdf/2604.00364)
 
 [Convex Maneuver Planning for Spacecraft Collision Avoidance](https://arxiv.org/pdf/2510.19058)
+
+## Geometric learning
+
+[Non-Abelian Group Embedding for Knowledge Graphs](https://arxiv.org/pdf/2005.10956)
