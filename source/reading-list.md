@@ -14,7 +14,7 @@ Additionally, the following resources are excellent for foundational material.
 
 [Visual Navigation](https://vnav.mit.edu/)
 
-[Foundations of Computer Vision](https://vision.mit.edu/)
+[Foundations of Computer Vision](https://visionbook.mit.edu/)
 
 ## Certifiable perception & estimation
 
