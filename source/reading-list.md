@@ -14,6 +14,8 @@ Additionally, the following resources are excellent for foundational material.
 
 [Visual Navigation](https://vnav.mit.edu/)
 
+[Foundations of Computer Vision](https://vision.mit.edu/)
+
 ## Certifiable perception & estimation
 
 [A Quaternion-based Certifiably Optimal Solution to the Wahba Problem with Outliers](https://arxiv.org/pdf/1905.12536)
@@ -51,6 +53,10 @@ Additionally, the following resources are excellent for foundational material.
 [Implicit Primal-Dual Interior-Point Methods for Quadratic Programming](https://arxiv.org/pdf/2604.00364)
 
 [Convex Maneuver Planning for Spacecraft Collision Avoidance](https://arxiv.org/pdf/2510.19058)
+
+## Modeling contact
+
+[A Pressure Field Model for Fast, Robust Approximation of Net Contact Force and Moment between Nominally Rigid Objects](https://arxiv.org/pdf/1904.11433)
 
 ## Geometric learning
 
