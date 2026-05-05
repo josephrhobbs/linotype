@@ -58,6 +58,8 @@ Additionally, the following resources are excellent for foundational material.
 
 [A Pressure Field Model for Fast, Robust Approximation of Net Contact Force and Moment between Nominally Rigid Objects](https://arxiv.org/pdf/1904.11433)
 
+[Velocity Level Approximation of Pressure Field Contact Patches](https://arxiv.org/pdf/2110.04157)
+
 ## Geometric learning
 
 [Non-Abelian Group Embedding for Knowledge Graphs](https://arxiv.org/pdf/2005.10956)
