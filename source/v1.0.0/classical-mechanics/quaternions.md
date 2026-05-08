@@ -1,5 +1,0 @@
-# Quaternions
-
-~
-
-More coming soon!

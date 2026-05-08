@@ -1,5 +1,0 @@
-# Divergence
-
-~
-
-More coming soon!
