@@ -63,3 +63,7 @@ Additionally, the following resources are excellent for foundational material.
 ## Geometric learning
 
 [Non-Abelian Group Embedding for Knowledge Graphs](https://arxiv.org/pdf/2005.10956)
+
+## Statistics and modeling
+
+[A Discrete Neural Sampler via Locally Equivariant Networks](https://arxiv.org/pdf/2502.10843)
