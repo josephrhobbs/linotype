@@ -28,7 +28,9 @@ This online publication, _Linotype_, is dedicated to the linotype machine and it
 
 Great question!  My name is [Joseph Hobbs](https://josephrhobbs.com/) and I'm an engineer and independent researcher.  I studied aerospace engineering at MIT (class of 2025) and I feel that, after four years of the firehose, I can't decide what's most interesting to me, because there's just so much to learn!
 
-I have particular interests though, in electrical and electronics engineering at every level, from Maxwell's equations to techniques for VLSI; the mechanics of continuous media, including the mechanics of materials and aerodynamics; the theories of probability and stochastic processes; and the application of theoretical computer science and applied mathematics to difficult problems in perception, control, and optimization.
+That said, my academic interests are primarily focused on the intersection between applied mathematics and the practical engineering disciplines.  The last centuries have seen incredible advances in mathematics, including the maturity of probability theory, information theory, linear algebra, statistical physics, and the formalization of groups, graphs, and geometry in theoretical computer science.  In more recent decades, we've seen the wild success of dynamic programming, modern theories of control, and convex optimization.
+
+For me, this common thread of interests manifests itself in analytical and numerical methods for electrical and electronics engineering, from Maxwell's equations to VLSI; continuum mechanics, including subsonic aerodynamics and the mechanics of materials and structures; the mechanics of rigid bodies, especially as applied to aircraft, spacecraft, and contact-rich robotic systems; and combinations of deep and classical methods for perception and control.
 
 ## Generative AI statement
 
