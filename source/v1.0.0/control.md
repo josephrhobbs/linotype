@@ -4,7 +4,7 @@
 
 More coming soon!
 
-::mathblock[definition][Cost-to-go of LQR.]
+::mathblock[Definition][Cost-to-go of LQR.]
 
 The cost-to-go function of a linear quadratic regulator is
 
