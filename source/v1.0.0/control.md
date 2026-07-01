@@ -10,6 +10,6 @@ The cost-to-go function of a linear quadratic regulator is
 
 \[ J(x) = x^\mathrm{T} S x \]
 
-where \( S \) is the unique solution to the continuous-time algebraic Ricatti equation (CARE).
+where \( S \) is the unique solution to the continuous-time algebraic Riccati equation (CARE).
 
 ::endmath

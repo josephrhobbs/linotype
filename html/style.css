@@ -113,12 +113,16 @@
     }
     
     div.mathblock span {
-        font-family: "Inter Tight", sans-serif;
+        color: var(--flamered);
         margin-left: 25%;
         margin-right: 25%;
         font-size: 18px;
         text-indent: 30px;
         line-height: 30px;
+    }
+
+    div.mathblock p {
+        margin: 0px;
     }
 
     div.byline {
