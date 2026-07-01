@@ -1,5 +1,3 @@
-# S-Procedure
-
-~
+# Control
 
 More coming soon!
