@@ -1,5 +1,7 @@
 # Control
 
+~
+
 More coming soon!
 
 ::mathblock[definition][Cost-to-go of LQR.]
