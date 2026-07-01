@@ -13,3 +13,11 @@ The cost-to-go function of a linear quadratic regulator is
 where \( S \) is the unique solution to the continuous-time algebraic Riccati equation (CARE).
 
 ::endmath
+
+::mathblock[Theorem][Something.]
+
+This is fascinating.
+
+::qed
+
+::endmath
