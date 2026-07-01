@@ -16,6 +16,8 @@ where \( S \) is the unique solution to the continuous-time algebraic Riccati eq
 
 ::mathblock[Theorem][Something.]
 
-This is fascinating. ::qed
+This is fascinating.
+
+::qed
 
 ::endmath
