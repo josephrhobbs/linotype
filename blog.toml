@@ -7,11 +7,17 @@ icon = "favicon.ico"
 names = [
     "Home",
     "About",
+    "Control",
+    "Estimation",
+    "Optimization",
     "Contact",
 ]
 links = [
     "/",
     "/about",
+    "/v1.0.0/control",
+    "/v1.0.0/estimation",
+    "/v1.0.0/optimization",
     "/contact",
 ]
 
