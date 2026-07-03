@@ -36,6 +36,8 @@ For me, this common thread of interests manifests itself in analytical and numer
 
 I also like thinking about what's next for humankind.  Not in some flashy sense, as if _this one technology_ is going to change everything in five years.  I like thinking about what's next in a deep, visceral, and very real sense.  The next mathematical idea or engineering technology that will eradicate a disease, improve quality of life for millions, or unlock a deeper understanding of this big and beautiful universe in which we find ourselves.
 
+If you'd like to know more about my philosophy on research and the future of technology, I've written an essay outlining it in more detail called "The Research City" (coming soon!).
+
 ## Generative AI statement
 
 I have an immense respect for the countless inspired mathematicians, computer scientists, and engineers who are building the future of generative models for language and vision.  That said, I also believe that academic and technical writing is a fundamentally human process that should be _for humans, by humans_.  I hold myself to the highest standard of quality and accountability in my writing.  Therefore, it is my guarantee that _no content on_ Linotype, _written or otherwise, is created, copyedited, or proofread by generative AI_.
