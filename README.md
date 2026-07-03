@@ -2,7 +2,7 @@
 
 An independent research notebook at the intersection of numerical methods, control, and optimization for modern robotics, perception, and control.
 
-Please check it out on [linotype.pub](https://linotype.pub/)!
+I invite you to check it out on [linotype.pub](https://linotype.pub/)!
 
 ## Developer Note
 
