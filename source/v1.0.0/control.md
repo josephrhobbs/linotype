@@ -8,4 +8,4 @@ The study of __control__ focuses on shaping the dynamics of nonlinear systems to
 
 The linear quadratic regulator is the quintessential optimal controller.
 
-[Linear quadratic regulator](control/linear-quadratic-regulator.md)
+[Linear quadratic regulator](control/linear-quadratic-regulator)
