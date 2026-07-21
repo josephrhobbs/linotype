@@ -4,6 +4,8 @@
 
 Research can be neither truly impactful nor applicable in a vacuum.  This is my "reading list"... papers I have read, am reading, or intend to read in the near future.
 
+For a subset of those papers I have read, I've written a short blog-style post summarizing my thoughts on the paper.  These posts, when they exist, are always linked underneath the title of the paper itself.  Such posts are likely, but not guaranteed, to include thoughts about the paper's core contributions, potential for future research or applications, necessary considerations, and directions for future work.
+
 Additionally, the following resources are excellent for foundational material.
 
 [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)
