@@ -22,6 +22,14 @@ Additionally, the following resources are excellent for foundational material.
 
 [A Quaternion-based Certifiably Optimal Solution to the Wahba Problem with Outliers](https://arxiv.org/pdf/1905.12536)
 
+### Robust perception with outliers
+
+[Certifiably Robust Geometric Perception with Outliers](https://arxiv.org/pdf/2006.06769)
+
+### Graduated non-convexity for spatial perception
+
+[Graduated Non-Convexity for Robust Spatial Perception](https://arxiv.org/pdf/1909.08605)
+
 ### Point cloud registration
 
 [Fast and Certifiable Point Cloud Registration](https://arxiv.org/pdf/2001.07715)
@@ -83,6 +91,14 @@ Additionally, the following resources are excellent for foundational material.
 [An Efficient Probabilistic Hardware Architecture for Diffusion-Like Models](https://arxiv.org/pdf/2510.23972)
 
 [Energy-Efficient Codon Optimization on Thermodynamic Hardware](https://arxiv.org/pdf/2606.17327)
+
+### Evaluation without generation
+
+[Non-Generative Assessment of Harmful Model Specialization with Applications to CSAM](https://arxiv.org/pdf/2604.25119)
+
+### Generalization in diffusion
+
+[Selective Underfitting in Diffusion Models](https://arxiv.org/pdf/2510.01378)
 
 ### Liquid time-constant networks
 
