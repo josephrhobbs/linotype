@@ -82,6 +82,10 @@ Additionally, the following resources are excellent for foundational material.
 
 [An Efficient Probabilistic Hardware Architecture for Diffusion-Like Models](https://arxiv.org/pdf/2510.23972)
 
+### Liquid time-constant networks
+
+[Liquid Time-Constant Networks](https://arxiv.org/pdf/2006.04439)
+
 ## Motion planning
 
 ### Graphs of convex sets
