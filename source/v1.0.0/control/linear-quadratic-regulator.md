@@ -30,4 +30,6 @@ and the state \( x(t) \) evolves according to
 
 \[ \dot{x}(t) = f\left( x(t), u^\star(t) \right) . \]
 
+It is also useful to know beforehand that \( J^\star \) will take the form \( x^\mathrm{T} S x \), for some matrix \( S \succeq 0 \).  We substitute our expressions for \( \ell \) and \( f \) to obtain
 
+\[ u^\star = \arg \min_u \left( x^\mathrm{T} Q x + u^\mathrm{T} R u + 2 x^\mathrm{T} S ( A x + B u ) \right) . \]
