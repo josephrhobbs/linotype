@@ -11,6 +11,7 @@ names = [
     "Control",
     "Estimation",
     "Optimization",
+    "Reading List",
     "Contact",
 ]
 links = [
@@ -20,6 +21,7 @@ links = [
     "/v1.0.0/control",
     "/v1.0.0/estimation",
     "/v1.0.0/optimization",
+    "/reading-list",
     "/contact",
 ]
 
