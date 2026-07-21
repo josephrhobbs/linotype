@@ -66,6 +66,10 @@ Additionally, the following resources are excellent for foundational material.
 
 ## Learning and control
 
+### Neural ODEs
+
+[Neural Ordinary Differential Equations](https://arxiv.org/pdf/1806.07366)
+
 ### Diffusion policy
 
 [Visuomotor Policy Learning via Action Diffusion](https://arxiv.org/pdf/2303.04137)
