@@ -2,11 +2,19 @@
 
 ~
 
-::byline[Joseph Hobbs][July 20, 2026]
+::byline[Joseph Hobbs][July 21, 2026]
 
 The _linear quadratic regulator_ (LQR) is the quintessential optimal controller.  Assuming linear dynamics and a quadratic cost, LQR provides an _almost_ closed-form solution for the optimal control policy.
 
 There is a deep sense in which LQR is to control what the Kalman Filter is to estimation.  Under linear dynamics, both provide optimal outputs; both are easily extended to nonlinear cases by successive linearization; and both are applied to extraordinary breadth across research and industry.
+
+Before we begin, we will define the _system dynamics_
+
+\[ f(x, u) := A x + B u \]
+
+as well as the _instantaneous cost_ \( \ell \).
+
+\[ \ell(x, u) := x^\mathrm{T} Q x + u^\mathrm{T} R u \]
 
 ## Dynamic programming
 
