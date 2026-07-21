@@ -46,9 +46,15 @@ Additionally, the following resources are excellent for foundational material.
 
 [Implementing Robust M-Estimators with Certifiable Factor Graph Optimization](https://arxiv.org/pdf/2603.20932)
 
-### Real-Time odometry
+### Real-time odometry
 
 [On-Manifold Preintegration for Real-Time Visual-Inertial Odometry](https://arxiv.org/pdf/1512.02363)
+
+## Convex optimization
+
+### Interior point method for QPs
+
+[Implicit Primal-Dual Interior-Point Methods for Quadratic Programming](https://arxiv.org/pdf/2604.00364)
 
 ## Learning and control
 
@@ -89,10 +95,6 @@ Additionally, the following resources are excellent for foundational material.
 ### Sum-of-squares programming for stability
 
 [Invariant Funnels around Trajectories using Sum-of-Squares Programming](https://arxiv.org/pdf/1010.3013)
-
-### Interior point method for QPs
-
-[Implicit Primal-Dual Interior-Point Methods for Quadratic Programming](https://arxiv.org/pdf/2604.00364)
 
 ### Convex conjunction avoidance
 
