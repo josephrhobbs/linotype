@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GL4VFN297F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GL4VFN297F');
+</script>
+
+
+<title>Linear Quadratic Regulator | Linotype</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<link href="/prism.css" rel="stylesheet" />
+<script src="/prism.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+<h1>Linear Quadratic Regulator</h1>
+
+<div class="menu">
+
+<a href="/">Home</a>
+
+<a href="/about">About</a>
+
+<a href="/v1.0.0/mechanics">Mechanics</a>
+
+<a href="/v1.0.0/control">Control</a>
+
+<a href="/v1.0.0/estimation">Estimation</a>
+
+<a href="/v1.0.0/optimization">Optimization</a>
+
+<a href="/contact">Contact</a>
+
+</div>
+
+
+
+<div class="byline"><div>Joseph Hobbs</div><div>July 20, 2026</div></div>
+
+<p>The <em>linear quadratic regulator</em> (LQR) is the quintessential optimal controller.  Assuming linear dynamics and a quadratic cost, LQR provides an <em>almost</em> closed-form solution for the optimal control policy.</p>
+
+<p>There is a deep sense in which LQR is to control what the Kalman Filter is to estimation.  Under linear dynamics, both provide optimal outputs; both are easily extended to nonlinear cases by successive linearization; and both are applied to extraordinary breadth across research and industry.</p>
+
+<h2>Dynamic programming</h2>
+
+<p>LQR is elegantly derived from the infinite-horizon <em>Hamilton-Jacobi-Bellman equation</em>, a partial differential equation describing the optimal policy \( u^\star \) for a continuous-time system with state \( x \) and optimal cost-to-go \( J^\star \).</p>
+
+<p>\[ u^\star = \arg \min_u \left( \ell(x, u) + \frac{\partial J^\star}{\partial x} f(x, u) \right) \]</p>
+
+<p>As a reminder, the <em>optimal cost-to-go</em> \( J^\star \) is defined as the integral</p>
+
+<p>\[ J^\star(t) := \int_t^\infty \ell(x(t), u^\star(t)) \, dt \]</p>
+
+<p>and the state \( x(t) \) evolves according to</p>
+
+<p>\[ \dot{x}(t) = f\left( x(t), u^\star(t) \right) . \]</p>
+
+</body>
+
+</html>
