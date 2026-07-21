@@ -82,6 +82,8 @@ Additionally, the following resources are excellent for foundational material.
 
 [An Efficient Probabilistic Hardware Architecture for Diffusion-Like Models](https://arxiv.org/pdf/2510.23972)
 
+[Energy-Efficient Codon Optimization on Thermodynamic Hardware](https://arxiv.org/pdf/2606.17327)
+
 ### Liquid time-constant networks
 
 [Liquid Time-Constant Networks](https://arxiv.org/pdf/2006.04439)
