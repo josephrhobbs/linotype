@@ -78,6 +78,10 @@ Additionally, the following resources are excellent for foundational material.
 
 [A Discrete Neural Sampler via Locally Equivariant Networks](https://arxiv.org/pdf/2502.10843)
 
+### Hardware for diffusion
+
+[An Efficient Probabilistic Hardware Architecture for Diffusion-Like Models](https://arxiv.org/pdf/2510.23972)
+
 ## Motion planning
 
 ### Graphs of convex sets
