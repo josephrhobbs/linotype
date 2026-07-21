@@ -58,7 +58,7 @@
 
 <div class="byline"><div>Joseph Hobbs</div><div>July 21, 2026</div></div>
 
-<p>The <em>linear quadratic regulator</em> (LQR) is the quintessential optimal controller.  Assuming linear dynamics and a quadratic cost, LQR provides an <em>almost</em> closed-form solution for the optimal control policy.</p>
+<p>The <strong>linear quadratic regulator</strong> (LQR) is the quintessential optimal controller.  Assuming linear dynamics and a quadratic cost, LQR provides an <em>almost</em> closed-form solution for the optimal control policy.</p>
 
 <p>There is a deep sense in which LQR is to control what the Kalman Filter is to estimation.  Under linear dynamics, both provide optimal outputs; both are easily extended to nonlinear cases by successive linearization; and both are applied to extraordinary breadth across research and industry.</p>
 
@@ -72,7 +72,7 @@
 
 <h2>Dynamic programming</h2>
 
-<p>LQR is elegantly derived from the infinite-horizon <em>Hamilton-Jacobi-Bellman equation</em>, a partial differential equation describing the optimal policy \( u^\star \) for a continuous-time system with state \( x \) and optimal cost-to-go \( J^\star \).</p>
+<p>LQR is elegantly derived from the infinite-horizon <strong>Hamilton-Jacobi-Bellman equation</strong>, a partial differential equation describing the optimal policy \( u^\star \) for a continuous-time system with state \( x \) and optimal cost-to-go \( J^\star \).</p>
 
 <p>\[ u^\star = \arg \min_u \left( \ell(x, u) + \frac{\partial J^\star}{\partial x} f(x, u) \right) \]</p>
 
@@ -90,14 +90,36 @@
 
 <p>The objective here is quadratic in \( u \).  Because \( Q, R \succeq 0 \), the objective is also convex, and a global minimum can be found easily at first-order.</p>
 
-<p>\[ 2 (u^\star)^\mathrm{T} R + 2 x^\mathrm{T} S B = 0 \Rightarrow u^\star = -R^\mathrm{-1} B^\mathrm{T} S x \]</p>
+<p>\[ 2 (u^\star)^\mathrm{T} R + 2 x^\mathrm{T} S B = 0 \Rightarrow u^\star = -R^{-1} B^\mathrm{T} S x \]</p>
 
 <p>Therefore, with a known \( S \) (which we have yet to determine), \( u^\star \) is easily computed for any given \( x \).</p>
 
 <h2>Towards the continuous-time algebraic Riccati equation</h2>
 
-<p>Using dynamic programming, we have successfully determined the optimal policy, \( u^\star \).  Unfortunately, it is dependent on an unknown matrix \( S \) (in our optimal cost-to-go expression).  We can determine \( S \) by substituting the expression for \( u^\star \) <em>back</em> into the Hamilton-Jacobi-Bellman equation (HJB).  The minimum value attained by HJB is always zero.</p>
+<p>Using dynamic programming, we have successfully determined the optimal policy, \( u^\star \).  Unfortunately, it is dependent on an unknown matrix \( S \) (in our optimal cost-to-go expression).  We can determine \( S \) by substituting the expression for \( u^\star \) <em>back</em> into the Hamilton-Jacobi-Bellman equation (HJB).  The minimum value attained by HJB is always zero, and with grouping of like terms, we get</p>
 
-<p>\[ 0 = \min_u \left( x^\mathrm{T} Q x + x^\mathrm{T} S^\mathrm{T} B R^\mathrm{-1} R R^\mathrm{-1} B^\mathrm{T} S x + 2 x^\mathrm{T} S ( A x - B R^\mathrm{-1} B^\mathrm{T} S x ) \right) \]</p></body>
+<p>\[ 0 = x^\mathrm{T} Q x + x^\mathrm{T} S B R^{-1} B^\mathrm{T} S x + 2 x^\mathrm{T} S ( A - B R^{-1} B^\mathrm{T} S ) x . \]</p>
+
+<p>This can be written as an expression quadratic in \( x \) like so.</p>
+
+<p>\[ x^\mathrm{T} \left( Q - S B R^{-1} B^\mathrm{T} S + 2 S A \right) x = 0 \]</p>
+
+<p>This expression can only be identically zero when the <em>symmetric component</em> of the matrix expression is zero.  This is because all square matrices can be written as the sum of a symmetric matrix \( A \) and an anti-symmetric matrix \( B \).  The quadratic form</p>
+
+<p>\[ x^\mathrm{T} B x \]</p>
+
+<p>is identically zero for any anti-symmetric matrix \( B \).  Therefore, it is sufficient to take the symmetric component of the above matrix.  The terms</p>
+
+<p>\[ Q - S B R^{-1} B^\mathrm{T} S \]</p>
+
+<p>are symmetric by construction (because \( S \) and \( R \) are symmetric), but \( 2 S A \) may not be symmetric if \( A \) is not symmetric.  Taking the symmetric component of this term,</p>
+
+<p>\[ \frac12 (2 S A + 2 A^\mathrm{T} S) = S A + A^\mathrm{T} S \]</p>
+
+<p>we can write the <strong>continuous-time algebraic Riccati equation</strong> (CARE).</p>
+
+<p>\[ Q - S B R^{-1} B^\mathrm{T} S + S A + A^\mathrm{T} S = 0 \]</p>
+
+<p>This is typically solved numerically for \( S \); the optimal policy is then easily computed from the expression above.</p></body>
 
 </html>
