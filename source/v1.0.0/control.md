@@ -2,7 +2,7 @@
 
 ~
 
-The study of __control__ focuses on shaping the dynamics of nonlinear systems to achieve stability, robustness to disturbance, and desirable performance characteristics.
+The study of __control__ focuses on shaping the dynamics of linear and nonlinear systems to achieve stability, robustness to disturbance, and desirable performance characteristics.
 
 ## Linear quadratic regulator
 
