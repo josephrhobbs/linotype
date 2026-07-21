@@ -86,6 +86,18 @@
 
 <p>It is also useful to know beforehand that \( J^\star \) will take the form \( x^\mathrm{T} S x \), for some matrix \( S \succeq 0 \).  We substitute our expressions for \( \ell \) and \( f \) to obtain</p>
 
-<p>\[ u^\star = \arg \min_u \left( x^\mathrm{T} Q x + u^\mathrm{T} R u + 2 x^\mathrm{T} S ( A x + B u ) \right) . \]</p></body>
+<p>\[ u^\star = \arg \min_u \left( x^\mathrm{T} Q x + u^\mathrm{T} R u + 2 x^\mathrm{T} S ( A x + B u ) \right) . \]</p>
+
+<p>The objective here is quadratic in \( u \).  Because \( Q, R \succeq 0 \), the objective is also convex, and a global minimum can be found easily at first-order.</p>
+
+<p>\[ 2 (u^\star)^\mathrm{T} R + 2 x^\mathrm{T} S B = 0 \Rightarrow u^\star = -R^\mathrm{-1} B^\mathrm{T} S x \]</p>
+
+<p>Therefore, with a known \( S \) (which we have yet to determine), \( u^\star \) is easily computed for any given \( x \).</p>
+
+<h2>Towards the continuous-time algebraic Riccati equation</h2>
+
+<p>Using dynamic programming, we have successfully determined the optimal policy, \( u^\star \).  Unfortunately, it is dependent on an unknown matrix \( S \) (in our optimal cost-to-go expression).  We can determine \( S \) by substituting the expression for \( u^\star \) <em>back</em> into the Hamilton-Jacobi-Bellman equation (HJB).  The minimum value attained by HJB is always zero.</p>
+
+<p>\[ 0 = \min_u \left( x^\mathrm{T} Q x + x^\mathrm{T} S^\mathrm{T} B R^\mathrm{-1} R R^\mathrm{-1} B^\mathrm{T} S x + 2 x^\mathrm{T} S ( A x - B R^\mathrm{-1} B^\mathrm{T} S x ) \right) \]</p></body>
 
 </html>
