@@ -50,3 +50,13 @@
 - [ ] Write truss optimization (element sizing) reference
 - [ ] Write topology optimization reference
 - [ ] Write post-processing algorithms reference
+
+### Variational Mechanics
+
+- [ ] Write variational mechanics reference
+
+### Statistical Mechanics
+
+- [ ] Write statistical mechanics reference
+- [ ] Write Ising/Potts model reference
+- [ ] Write Gibbs sampling reference
