@@ -126,6 +126,8 @@ Additionally, the following resources are excellent for foundational material.
 
 [Invariant Funnels around Trajectories using Sum-of-Squares Programming](https://arxiv.org/pdf/1010.3013)
 
+[Controls Applications of Sum-of-Squares Programming](https://bcci.me.berkeley.edu/downloads/papers/weehong_2.pdf)
+
 ### Convex conjunction avoidance
 
 [Convex Maneuver Planning for Spacecraft Collision Avoidance](https://arxiv.org/pdf/2510.19058)
