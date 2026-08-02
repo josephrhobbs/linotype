@@ -132,10 +132,14 @@ Additionally, the following resources are excellent for foundational material.
 
 [Convex Maneuver Planning for Spacecraft Collision Avoidance](https://arxiv.org/pdf/2510.19058)
 
-## Modeling contact
+## Differentiable physics
 
 ### Hydroelastic contact
 
 [A Pressure Field Model for Fast, Robust Approximation of Net Contact Force and Moment between Nominally Rigid Objects](https://arxiv.org/pdf/1904.11433)
 
 [Velocity Level Approximation of Pressure Field Contact Patches](https://arxiv.org/pdf/2110.04157)
+
+### Swimming robots
+
+[Realizing Robotic Swimming with Unified Fluid-Robot Multiphysics](https://arxiv.org/pdf/2506.05012v2)
