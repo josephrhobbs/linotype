@@ -42,6 +42,8 @@ If you'd like to know more about my philosophy on research and the future of tec
 
 I have an immense respect for the countless inspired mathematicians, computer scientists, and engineers who are building the future of generative models for language and vision.  That said, I also believe that academic and technical writing is a fundamentally human process that should be _for humans, by humans_.  I hold myself to the highest standard of quality and accountability in my writing.  Therefore, it is my guarantee that _no content on_ Linotype, _written or otherwise, is created, copyedited, or proofread by generative AI_.
 
+You are welcome to learn more about my position on this by reading my short essay ["On Generative Models"](/essays/on-generative-models).
+
 ## References
 
 J. Colcough. "The Linotype: The Machine that Revolutionized Mobile Type". The Library of Congress Blogs. https://blogs.loc.gov/headlinesandheroes/2022/06/the-linotype-the-machine-that-revolutionized-movable-type/ (accessed April 3, 2026)
