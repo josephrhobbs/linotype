@@ -60,7 +60,7 @@
 
 <div class="byline"><div>Joseph Hobbs</div><div>August 4, 2026</div></div>
 
-<p>The <strong>Principle of Stationary Action</strong> (PSA) is the cornerstone of contemporary classical mechanics.  Dissatisfied with the Newtonian formulation, mathematicians Joseph-Louis Lagrange set out to develop a more elegant formulation of classical mechanics in the 18th century.  His famous result, described by Euler as the <em>calculus of variations</em>, is foundational to analytical mechanics.  Centuries later, the study of <strong>optimal control</strong> has found great utility in Lagrange's work (Liberzon).</p>
+<p>The <strong>Principle of Stationary Action</strong> (PSA) is the cornerstone of contemporary classical mechanics.  Dissatisfied with the Newtonian formulation, mathematician Joseph-Louis Lagrange set out to develop a more elegant formulation of classical mechanics in the 18th century.  His famous result, described by Euler as the <em>calculus of variations</em>, is foundational to analytical mechanics.  Centuries later, the study of <strong>optimal control</strong> has found great utility in Lagrange's work (Liberzon).</p>
 
 <p>Here, I derive the <em>Euler-Lagrange equation</em>, the contemporary formulation of Lagrange's work.  Informally, Lagrange proposed a method to optimize <em>entire functions</em> with respect to a <em>functional objective</em> using "ordinary" differential calculus.  Lagrange's discovery is the core of the Principle of Statinonary Action, an elegant reformulation of classical mechanics.  The main theorem is below, and following it is a standard derivation.</p>
 
@@ -80,11 +80,11 @@
 
 <div class="mathblock"><span>Theorem. Euler-Lagrange Theorem</span>
 
-<p>Let \( f \in C^2 \) be a function \( f: \mathbb{R} \rightarrow \mathbb{R} \), and let \( \mathcal{S} \) be a functional over possible functions \( f \) defined by</p>
+<p>Let \( f \in C^2 \) be a function \( f: \mathbb{R} \rightarrow \mathbb{R}^n \), \( \mathcal{L} \in C^2 \) be a function \( \mathcal{L} : \mathbb{R}^n \rightarrow \mathbb{R} \), and \( \mathcal{S} \) be a functional over possible functions \( f \) defined by</p>
 
 <p>\[ S f := \int_a^b \mathcal{L} \left( f(x), f^\prime(x) \right) \, dt . \]</p>
 
-<p>For the function \( f \) to be stationary with respect to \( \mathcal{L} \), it is both necessary and sufficient that \( f \) satisfy the <em>Euler-Lagrange equation</em>.</p>
+<p>For the function \( f \) to be stationary with respect to \( S \), it is both necessary and sufficient that \( f \) satisfy the <em>Euler-Lagrange equation</em>.</p>
 
 <p>\[ \frac{d}{dx} \left( \frac{d\mathcal{L}}{df^\prime} \right) - \frac{d\mathcal{L}}{df} = 0 \]</p>
 
@@ -94,7 +94,25 @@
 
 <h3>Derivation</h3>
 
-<p><em>More coming soon!</em></p>
+<p>What follows is a standard derivation of the Euler-Lagrange equation.</p>
+
+<div class="mathblock"><span>Proof. Euler-Lagrange Theorem</span>
+
+<p>Let \( f \) and \( \mathcal{L} \) be functions as previously described, and let \( S \) be the functional</p>
+
+<p>\[ S f := \int_a^b \mathcal{L} \left( f(x), f^\prime(x) \right) \, dt . \]</p>
+
+<p>We introduce an arbitrary <em>test function</em> \( \eta \in C^1 \) such that \( \eta(a) = \eta(b) = 0 \) and a constant \( \varepsilon \in \mathbb{R} \).  Perturb the function \( f \) by \( \eta(t) \) by defining</p>
+
+<p>\[ f_\varepsilon(x) := f(x) + \varepsilon \eta(x) . \]</p>
+
+<p>Notice that \( f_\varepsilon(a) = f(a) \) and \( f_\varepsilon(b) = f(b) \), because \( \eta(a) = \eta(b) = 0 \).  This fact will become useful later in the proof.  For \( f \) to be stationary with respect to \( S \), it is necessary and sufficient that</p>
+
+<p>\[ \frac{\partial}{\partial \varepsilon} S f_\varepsilon = 0 . \]</p>
+
+<p>&#x25A0;</p>
+
+</div>
 
 <h2>References</h2>
 
