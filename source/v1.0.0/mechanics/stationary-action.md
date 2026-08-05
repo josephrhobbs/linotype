@@ -52,15 +52,37 @@ We introduce an arbitrary _test function_ \( \eta \in C^1 \) such that \( \eta(a
 
 Notice that \( f_\varepsilon(a) = f(a) \) and \( f_\varepsilon(b) = f(b) \), because \( \eta(a) = \eta(b) = 0 \).  This fact will become useful later in the proof.  For \( f \) to be stationary with respect to \( S \), it is necessary and sufficient that
 
-\[ \frac{\partial}{\partial \varepsilon} S f_\varepsilon = 0 \]
+\[ \left. \frac{\partial}{\partial \varepsilon} S f_\varepsilon \right\vert_{\varepsilon = 0} = 0 \]
 
 for arbitrary \( \eta \).  In other words, the value of \( S \) is stationary with respect to any possible perturbation to \( f \).  We expand this derivative by writing the definition of the action functional \( S \) and the perturbed function \( f_\varepsilon \).
 
-\[ \frac{\partial}{\partial \varepsilon} \int_a^b \mathcal{L} \left( f(t) + \varepsilon \eta(t), f^\prime(t) + \varepsilon \eta^\prime(t) \right) \, dt \]
+\[ \frac{\partial}{\partial \varepsilon} \int_a^b \mathcal{L} \left( f(t) + \varepsilon \eta(t), f^\prime(t) + \varepsilon \eta^\prime(t) \right) \, dt = 0 \]
 
 We reverse the order of integration and differentiation, and apply the chain rule.
 
-\[ \int_a^b \mathcal{L} \left( \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \frac{\partial f_\varepsilon}{\partial \varepsilon} + \frac{\partial \mathcal{L}}{\partial f_\varepsilon^\prime} \frac{\partial f_\varepsilon^\prime}{\partial \varepsilon} \right) \, dt \]
+\[ \int_a^b \left( \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \frac{\partial f_\varepsilon}{\partial \varepsilon} + \frac{\partial \mathcal{L}}{\partial f_\varepsilon^\prime} \frac{\partial f_\varepsilon^\prime}{\partial \varepsilon} \right) \, dt = 0 \]
+
+Substituting known derivatives, we arrive at
+
+\[ \int_a^b \left( \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \eta(t) + \frac{\partial \mathcal{L}}{\partial f_\varepsilon^\prime} \eta^\prime(t) \right) \, dt = 0 . \]
+
+We can integrate the second addend by parts to obtain
+
+\[ \int_a^b \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \eta^\prime(t) \, dt = \left. \frac{\partial \mathcal{L}{\partial f_\varepsilon}} \eta(t) \right\vert_a^b - \int_a^b \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \eta(t) \, dt . \]
+
+Notice that the first term vanishes because \( \eta(a) = \eta(b) = 0 \).  Our original equality then simplifies to
+
+\[ \int_a^b \left( \frac{\partial \mathcal{L}}{\partial f_\varepsilon} - \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial f_\varepsilon^\prime} \right) \eta(t) \, dt = 0 . \]
+
+This integral must hold for any arbitrary test function \( \eta(t) \).  It is necessary and sufficient that
+
+\[ \frac{\partial \mathcal{L}}{\partial f_\varepsilon} - \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial f_\varepsilon^\prime} = 0 \]
+
+for this integral to equal zero for any test function.  Because \( f_\varepsilon(t) = f(t) \) for \( \varepsilon = 0 \), we have
+
+\[ \frac{\partial \mathcal{L}}{\partial f} - \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial f^\prime} = 0 \]
+
+and, up to the sign of the left-hand side, this proves the theorem.
 
 ::qed
 
