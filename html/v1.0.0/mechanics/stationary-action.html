@@ -34,6 +34,28 @@
 
 <h1>Principle of Stationary Action</h1>
 
+<div class="menu">
+
+<a href="/">Home</a>
+
+<a href="/about">About</a>
+
+<a href="/v1.0.0/mechanics">Mechanics</a>
+
+<a href="/v1.0.0/control">Control</a>
+
+<a href="/v1.0.0/estimation">Estimation</a>
+
+<a href="/v1.0.0/optimization">Optimization</a>
+
+<a href="/reading-list">Reading List</a>
+
+<a href="/contact">Contact</a>
+
+</div>
+
+
+
 <div class="byline"><div>Joseph Hobbs</div><div>August 4, 2026</div></div>
 
 <p>The <strong>Principle of Stationary Action</strong> (PSA) is the cornerstone of contemporary classical mechanics.  Dissatisfied with the Newtonian formulation, mathematicians Joseph-Louis Lagrange set out to develop a more elegant formulation of classical mechanics in the 18th century.  His famous result, described by Euler as the <em>calculus of variations</em>, is foundational to analytical mechanics.  Centuries later, the study of <strong>optimal control</strong> has found great utility in Lagrange's work (Liberzon).</p>
@@ -44,7 +66,9 @@
 
 <p>The PSA informally states that <strong>nature always prefers paths with stationary action</strong>.  The <em>action</em> of a trajectory \( x(t) \) between \( t = a \) and \( t = b \) is written as</p>
 
-<p>\[ S := \int_a^b \left( T(x) - V(x) \right) \, dt . \]</p>
+<p>\[ S x := \int_a^b \left( T(x) - V(x) \right) \, dt . \]</p>
+
+<p>Note that I use the notation \( S x \) to denote the evaluation of the functional \( S \) on the function \( x(t) \).</p>
 
 <p>Here, \( T \) is the kinetic energy operator, and \( V \) is the potential energy operator.  Notice that nonconservative forces (e.g. friction) are not accounted for here... this formulation only considers movement in a conservative field, though of course nonconservative corrections exist.  Lagrange's work (as well as that by Sir William Hamilton) gives us the brilliant insight that nature always seeks the path with <em>stationary</em> action.  This means that, in all cases, trajectories lie at a local minimum, maximum, or saddle point of the action.</p>
 
