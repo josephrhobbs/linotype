@@ -82,13 +82,13 @@
 
 <p>Let \( f \in C^2 \) be a function \( f: \mathbb{R} \rightarrow \mathbb{R}^n \), \( \mathcal{L} \in C^2 \) be a function \( \mathcal{L} : \mathbb{R}^n \rightarrow \mathbb{R} \), and \( \mathcal{S} \) be a functional over possible functions \( f \) defined by</p>
 
-<p>\[ S f := \int_a^b \mathcal{L} \left( f(x), f^\prime(x) \right) \, dt . \]</p>
+<p>\[ S f := \int_a^b \mathcal{L} \left( f(t), f^\prime(t) \right) \, dt . \]</p>
 
 <p>For the function \( f \) to be stationary with respect to \( S \), it is both necessary and sufficient that \( f \) satisfy the <em>Euler-Lagrange equation</em>.</p>
 
-<p>\[ \frac{d}{dx} \left( \frac{d\mathcal{L}}{df^\prime} \right) - \frac{d\mathcal{L}}{df} = 0 \]</p>
+<p>\[ \frac{d}{dt} \left( \frac{d\mathcal{L}}{df^\prime} \right) - \frac{d\mathcal{L}}{df} = 0 \]</p>
 
-<p>Here, \( x \in \mathbb{R} \) is the argument of \( f \) and \( f^\prime \) is the derivative of \( f \) with respect to its argument \( x \).</p>
+<p>Here, \( t \in \mathbb{R} \) is the argument of \( f \) and \( f^\prime \) is the derivative of \( f \) with respect to its argument \( t \).</p>
 
 </div>
 
@@ -100,15 +100,23 @@
 
 <p>Let \( f \) and \( \mathcal{L} \) be functions as previously described, and let \( S \) be the functional</p>
 
-<p>\[ S f := \int_a^b \mathcal{L} \left( f(x), f^\prime(x) \right) \, dt . \]</p>
+<p>\[ S f := \int_a^b \mathcal{L} \left( f(t), f^\prime(t) \right) \, dt . \]</p>
 
 <p>We introduce an arbitrary <em>test function</em> \( \eta \in C^1 \) such that \( \eta(a) = \eta(b) = 0 \) and a constant \( \varepsilon \in \mathbb{R} \).  Perturb the function \( f \) by \( \eta(t) \) by defining</p>
 
-<p>\[ f_\varepsilon(x) := f(x) + \varepsilon \eta(x) . \]</p>
+<p>\[ f_\varepsilon(t) := f(t) + \varepsilon \eta(t) . \]</p>
 
 <p>Notice that \( f_\varepsilon(a) = f(a) \) and \( f_\varepsilon(b) = f(b) \), because \( \eta(a) = \eta(b) = 0 \).  This fact will become useful later in the proof.  For \( f \) to be stationary with respect to \( S \), it is necessary and sufficient that</p>
 
-<p>\[ \frac{\partial}{\partial \varepsilon} S f_\varepsilon = 0 . \]</p>
+<p>\[ \frac{\partial}{\partial \varepsilon} S f_\varepsilon = 0 \]</p>
+
+<p>for arbitrary \( \eta \).  In other words, the value of \( S \) is stationary with respect to any possible perturbation to \( f \).  We expand this derivative by writing the definition of the action functional \( S \) and the perturbed function \( f_\varepsilon \).</p>
+
+<p>\[ \frac{\partial}{\partial \varepsilon} \int_a^b \mathcal{L} \left( f(t) + \varepsilon \eta(t), f^\prime(t) + \varepsilon \eta^\prime(t) \right) \, dt \]</p>
+
+<p>We reverse the order of integration and differentiation, and apply the chain rule.</p>
+
+<p>\[ \int_a^b \mathcal{L} \left( \frac{\partial \mathcal{L}}{\partial f} \frac{\partial f}{\partial \varepsilon} + \frac{\partial \mathcal{L}}{\partial f^\prime} \frac{\partial f^\prime}{\partial \varepsilon} \) \, dt \]</p>
 
 <p>&#x25A0;</p>
 
