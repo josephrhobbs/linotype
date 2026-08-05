@@ -68,7 +68,7 @@ Substituting known derivatives, we arrive at
 
 We can integrate the second addend by parts to obtain
 
-\[ \int_a^b \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \eta^\prime(t) \, dt = \left. \frac{\partial \mathcal{L}{\partial f_\varepsilon}} \eta(t) \right\vert_a^b - \int_a^b \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \eta(t) \, dt . \]
+\[ \int_a^b \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \eta^\prime(t) \, dt = \left. \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \eta(t) \right\vert_a^b - \int_a^b \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \eta(t) \, dt . \]
 
 Notice that the first term vanishes because \( \eta(a) = \eta(b) = 0 \).  Our original equality then simplifies to
 
