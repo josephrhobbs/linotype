@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GL4VFN297F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GL4VFN297F');
+</script>
+
+
+<title>Stationary Action | Linotype</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<link href="/prism.css" rel="stylesheet" />
+<script src="/prism.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+<h1>Principle of Stationary Action</h1>
+
+<div class="byline"><div>Joseph Hobbs</div><div>August 4, 2026</div></div>
+
+<p>The <strong>Principle of Stationary Action</strong> (PSA) is the cornerstone of contemporary classical mechanics.  Dissatisfied with the Newtonian formulation, mathematicians Joseph-Louis Lagrange set out to develop a more elegant formulation of classical mechanics in the 18th century.  His famous result, described by Euler as the <em>calculus of variations</em>, is foundational to analytical mechanics.  Centuries later, the study of <strong>optimal control</strong> has found great utility in Lagrange's work (Liberzon).</p>
+
+<p>Here, I derive the <em>Euler-Lagrange equation</em>, the contemporary formulation of Lagrange's work.  Informally, Lagrange proposed a method to optimize <em>entire functions</em> with respect to a <em>functional objective</em> using "ordinary" differential calculus.  Lagrange's discovery is the core of the Principle of Statinonary Action, an elegant reformulation of classical mechanics.  The main theorem is below, and following it is a standard derivation.</p>
+
+<h2>The principle, informally</h2>
+
+<p>The PSA informally states that <strong>nature always prefers paths with stationary action</strong>.  The <em>action</em> of a trajectory \( x(t) \) between \( t = a \) and \( t = b \) is written as</p>
+
+<p>\[ S := \int_a^b \left( T(x) - V(x) \right) \, dt . \]</p>
+
+<p>Here, \( T \) is the kinetic energy operator, and \( V \) is the potential energy operator.  Notice that nonconservative forces (e.g. friction) are not accounted for here... this formulation only considers movement in a conservative field, though of course nonconservative corrections exist.  Lagrange's work (as well as that by Sir William Hamilton) gives us the brilliant insight that nature always seeks the path with <em>stationary</em> action.  This means that, in all cases, trajectories lie at a local minimum, maximum, or saddle point of the action.</p>
+
+<h2>Deriving the Euler-Lagrange equation</h2>
+
+<h3>Theorem statement</h3>
+
+<div class="mathblock"><span>Theorem. Euler-Lagrange Theorem</span>
+
+<p>Let \( f \in C^2 \) be a function \( f: \mathbb{R} \rightarrow \mathbb{R} \), and let \( \mathcal{S} \) be a functional over possible functions \( f \) defined by</p>
+
+<p>\[ S f := \int_a^b \mathcal{L} \left( f(x), f^\prime(x) \right) \, dt . \]</p>
+
+<p>For the function \( f \) to be stationary with respect to \( \mathcal{L} \), it is both necessary and sufficient that \( f \) satisfy the <em>Euler-Lagrange equation</em>.</p>
+
+<p>\[ \frac{d}{dx} \left( \frac{d\mathcal{L}}{df^\prime} \right) - \frac{d\mathcal{L}}{df} = 0 \]</p>
+
+<p>Here, \( x \in \mathbb{R} \) is the argument of \( f \) and \( f^\prime \) is the derivative of \( f \) with respect to its argument \( x \).</p>
+
+</div>
+
+<h3>Derivation</h3>
+
+<p><em>More coming soon!</em></p>
+
+<h2>References</h2>
+
+<p>Liberzon, Daniel.  "Calculus of Variations and Optimal Control Theory: A Concise Introduction".  University of Illinois at Urbana-Champaign.  https://liberzon.csl.illinois.edu/teaching/cvoc/node29.html (accessed August 4, 2026)</p></body>
+
+</html>
