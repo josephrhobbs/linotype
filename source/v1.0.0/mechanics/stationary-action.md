@@ -60,7 +60,7 @@ for arbitrary \( \eta \).  In other words, the value of \( S \) is stationary wi
 
 We reverse the order of integration and differentiation, and apply the chain rule.
 
-\[ \int_a^b \mathcal{L} \left( \frac{\partial \mathcal{L}}{\partial f} \frac{\partial f}{\partial \varepsilon} + \frac{\partial \mathcal{L}}{\partial f^\prime} \frac{\partial f^\prime}{\partial \varepsilon} \) \, dt \]
+\[ \int_a^b \mathcal{L} \left( \frac{\partial \mathcal{L}}{\partial f_\varepsilon} \frac{\partial f_\varepsilon}{\partial \varepsilon} + \frac{\partial \mathcal{L}}{\partial f_\varepsilon^\prime} \frac{\partial f_\varepsilon^\prime}{\partial \varepsilon} \) \, dt \]
 
 ::qed
 
