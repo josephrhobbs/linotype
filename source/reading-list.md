@@ -108,7 +108,11 @@ Additionally, the following resources are excellent for foundational material.
 
 [Liquid Time-Constant Networks](https://arxiv.org/pdf/2006.04439)
 
-## Motion planning
+## Algorithms for planning and synthesis
+
+### Program synthesis
+
+[Stochastic Superoptimization](https://arxiv.org/pdf/1211.0557)
 
 ### Graphs of convex sets
 
