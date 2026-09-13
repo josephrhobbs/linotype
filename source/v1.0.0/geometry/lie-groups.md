@@ -4,7 +4,7 @@
 
 ::byline[Joseph Hobbs][September 13, 2026]
 
-A fundamental idea in the contemporary study of geometry, especially applied differential geometry, is that of the __Lie group__ ("_lee_" group).  The theory of Lie groups formalizes a very broad class of related geometric ideas about symmetry: rotation, translation, and perspective.
+A fundamental idea in the contemporary study of geometry, especially applied differential geometry, is that of the __Lie group__, pronounced "_lee_" group.  The theory of Lie groups formalizes a very broad class of related geometric ideas about symmetry: rotation, translation, and perspective.
 
 Before we discuss Lie groups, however, we must first address two related concepts: that of the _group_ and that of the _manifold_.
 
