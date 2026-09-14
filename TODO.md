@@ -77,6 +77,7 @@
 ## Synthesis
 
 - [ ] Write inductive synthesis reference
+- [ ] Write ML for synthesis reference
 
 ## Learning
 
