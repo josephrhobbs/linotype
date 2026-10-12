@@ -37,4 +37,5 @@ tag = "analytics.html"
 [media]
 include = [
     "sprout.pdf",
+    "towards-convex-calibration.pdf",
 ]
