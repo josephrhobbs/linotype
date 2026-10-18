@@ -8,4 +8,8 @@ The study and theory of __estimation__ provides rigorous tools for making infere
 
 Here, I attempt to summarize the field of estimation as it may be useful to a contemporary theoretician or practitioner.  Those already familiar will notice that, like many other materials on _Linotype_, my coverage of the theory of estimation has a characteristic "modern" flair, with a focus on the intersection between Bayesian statistics and convex optimization whenever possible.
 
-_More coming soon!_
+## Luenberger observer
+
+The __Luenberger observer__ is the quintessential multiple-state observer under known dynamics.  Given a dynamics model and a measurement model, the Luenberger observer constructs estimates of a system's underlying state.
+
+[Luenberger Observer](estimation/luenberger-observer)
