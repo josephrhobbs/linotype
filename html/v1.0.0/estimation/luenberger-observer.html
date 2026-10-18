@@ -62,7 +62,87 @@
 
 <div class="byline"><div>Joseph Hobbs</div><div>October 18, 2026</div></div>
 
+<p>The <strong>Luenberger observer</strong> is the quintessential observer under known linear dynamics and measurement models.  Here, we derive the observer and its stability conditions.  The <em>Kalman filter</em>, a technique ubiquitous in industry and research for state estimation, is in fact a special case of the Luenberger observer and is considered optimal (minimum variance) under certain assumptions of process and measurement noise.  We derive the observer's continuous-time formulation, but of course a discrete-time formulation exists and may be derived according to a similar method.</p>
+
+<h2>Dynamics and measurement models</h2>
+
+<p>We assume the following, <em>known</em> linear dynamics model.</p>
+
+<p>\[ \dot{x} = A x + B u \]</p>
+
+<p>Here, \( x \in \mathbb{R}^n \) is the state variable, \( u \in \mathbb{R}^k \) is control input, and \( A \in \mathbb{R}^{n \times n}, B \in \mathbb{R}^{n \times k} \) are matrices with known entries.  We also assume the following <em>known</em> linear measurement model.</p>
+
+<p>\[ y = C x \]</p>
+
+<p>We write as \( y \in \mathbb{R}^d \) the measurement output and \( C \in \mathbb{R}^{d \times n} \) a matrix with known entries.</p>
+
+<h2>Defining the observer</h2>
+
+<p>The <strong>Luenberger observer</strong> \( \hat{x} \) is an <em>unbiased</em> and <em>asymptotically stable</em> estimator of \( x \).  The observer solves the ordinary differential equation</p>
+
+<p>\[ \dot{\hat{x}} = A \hat{x} + B u + L e \]</p>
+
+<p>where \( e \in \mathbb{R}^d \) is a <em>measurement error</em> term, and \( L \in \mathbb{R}^{n \times d} \) is an <strong>observer gain</strong> selected by the user.  The observer gain <em>must</em> satisfy the <em>observer stability condition</em>, or the observer will become unstable.</p>
+
+<h3>Computing measurement error</h3>
+
+<p>The measurement error \( e \) is defined according to</p>
+
+<p>\[ e := y - \hat{y} \]</p>
+
+<p>where \( \hat{y} \) is the system output <em>as estimated by the observer</em>, and \( y \) is the true system output.</p>
+
+<p>\[ \hat{y} := C \hat{x} \]</p>
+
+<h3>Expanding the ODE</h3>
+
+<p>Substituting expressions for \( y, \hat{y} \) we find the following.</p>
+
+<p>\[ \dot{\hat{x}} = A \hat{x} + B u + LC x - LC \hat{x} \]</p>
+
+<p>\[ \therefore \dot{\hat{x}} = (A - LC) \hat{x} + Bu + LCx \]</p>
+
+<p>This expression is not useful during estimation because we do not know the value of \( x \) directly.  However, we can use this to derive the conditions under which the observer is stable.</p>
+
+<h3>Constructing the stability condition</h3>
+
+<p>The Luenberger observer is a <strong>stable observer</strong> when the <em>state error</em> \( x - \hat{x} \) is known to converge as \( t \rightarrow \infty \).  This can be ensured by correctly selecting the gain matrix \( L \).  We write the time derivative of the state error as</p>
+
+<p>\[ \frac{d}{dt} \left( x - \hat{x} \right) = \dot{x} - \dot{\hat{x}} \]</p>
+
+<p>\[ \therefore \frac{d}{dt} \left( x - \hat{x} \right) = A x + B u - (A - LC) \hat{x} - B u - LC x \]</p>
+
+<p>\[ \therefore \frac{d}{dt} \left( x - \hat{x} \right) = (A - LC)(x - \hat{x}) \]</p>
+
+<p>We define \( A_\mathrm{obs} := A - LC \) to be the <em>observer dynamics</em> matrix.  For observer stability, we want the time derivative of \( x - \hat{x} \) to go to zero.  This occurs if and only if \( A - LC \) is strictly <em>negative definite</em>... that is, the eigenvalues of \( A - LC \) must all be strictly less than zero.  We write this condition as \( A - LC \prec 0 \).</p>
+
+<h3>Analyzing stability of the observer</h3>
+
 <p><em>More coming soon!</em></p>
+
+<h3>A connection to Lyapunov analysis</h3>
+
+<p>Let us write the state error as \( q(t) \in \mathbb{R}^n \).  Defining the matrix \( R \in \mathbb{R}^{n \times n} \) such that \( R \succ 0 \), we define a Lyapunov candidate for the observer as</p>
+
+<p>\[ V(q) := q^\top R q. \]</p>
+
+<p>It is easy to see that, as \( q \rightarrow 0 \), the Lyapunov function decreases towards zero.  For this Lyapunov candidate to certify asymptotic stability of our Luenberger observer, we must have \( \dot{V} < 0 \).  In other words,</p>
+
+<p>\[ \dot{V}(q) = q^\top R \dot{q} + \dot{q}^\top R q < 0 \]</p>
+
+<p>\[ \therefore \dot{V}(q) = q^\top R (A - LC) q + q^\top (A - LC)^\top R q < 0 \]</p>
+
+<p>For this expression to be always negative, there must exist a matrix \( P \succeq 0 \) such that</p>
+
+<p>\[ R (A - LC) + (A - LC)^\top R = -P . \]</p>
+
+<p>Expanding, we have</p>
+
+<p>\[ R A - R L C + A^\top R - C^\top L^\top R + P = 0 . \]</p>
+
+<p>This equation is linear in \( L \) and, after user selection of \( P \), is easily solved by various software toolboxes for multivariate control design.</p>
+
+<h2>References</h2>
 
 </body>
 

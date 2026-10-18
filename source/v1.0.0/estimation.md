@@ -10,6 +10,6 @@ Here, I attempt to summarize the field of estimation as it may be useful to a co
 
 ## Luenberger observer
 
-The __Luenberger observer__ is the quintessential multiple-state observer under known dynamics.  Given a dynamics model and a measurement model, the Luenberger observer constructs estimates of a system's underlying state.
+The __Luenberger observer__ is the quintessential multiple-state observer under known linear dynamics.  Given a dynamics model and a measurement model, the Luenberger observer constructs estimates of a system's underlying state.
 
 [Luenberger Observer](estimation/luenberger-observer)
