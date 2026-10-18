@@ -8,4 +8,8 @@ I have decided to collect these various problems and methods under the title __s
 
 Some _Linotype_ readers may wonder why these ideas were not collected under other topics.  I would like to highlight that, here, the topic of synthesis places a strong emphasis on _structured_ generation... including methods for enforcing specified constraints, whether they are model-based, model-free, or heuristic.
 
-_More coming soon!_
+## Flow matching
+
+Given samples of an unknown distribution, __flow matching__ is a common method used to sample from the underlying distribution by constructing an ODE whose solution interpolates between a known distribution and the unknown distribution.
+
+[Flow Matching](synthesis/flow-matching)
