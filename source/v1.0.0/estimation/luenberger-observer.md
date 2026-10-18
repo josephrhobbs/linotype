@@ -58,7 +58,11 @@ The Luenberger observer is a __stable observer__ when the _state error_ \( x - \
 
 We define \( A_\mathrm{obs} := A - LC \) to be the _observer dynamics_ matrix.  For observer stability, we want the time derivative of \( x - \hat{x} \) to go to zero.  This occurs if and only if \( A - LC \) is strictly _negative definite_... that is, the eigenvalues of \( A - LC \) must all be strictly less than zero.  We write this condition as \( A - LC \prec 0 \).
 
-### Analyzing stability of the observer
+### Characterizing observer dynamics
+
+_More coming soon!_
+
+### Vanishing bias of the observer
 
 _More coming soon!_
 
