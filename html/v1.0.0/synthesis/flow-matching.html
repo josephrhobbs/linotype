@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GL4VFN297F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GL4VFN297F');
+</script>
+
+
+<title>Flow Matching | Linotype</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<link href="/prism.css" rel="stylesheet" />
+<script src="/prism.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+</head>
+
+<body>
+
+<h1>Flow Matching</h1>
+
+<div class="menu">
+
+<a href="/">Home</a>
+
+<a href="/about">About</a>
+
+<a href="/v1.0.0/mechanics">Mechanics</a>
+
+<a href="/v1.0.0/geometry">Geometry</a>
+
+<a href="/v1.0.0/control">Control</a>
+
+<a href="/v1.0.0/estimation">Estimation</a>
+
+<a href="/v1.0.0/optimization">Optimization</a>
+
+<a href="/v1.0.0/synthesis">Synthesis</a>
+
+<a href="/reading-list">Reading List</a>
+
+<a href="/contact">Contact</a>
+
+</div>
+
+
+
+<div class="byline"><div>Joseph Hobbs</div><div>October 18, 2026</div></div>
+
+<p>The method of <strong>flow matching</strong> is a common approach used for sampling (approximately) from a probability distribution \( p_\mathrm{data} \) when only samples from the distribution \( x_i \sim p_\mathrm{data} \) are known.  The method constructs an ordinary differential equation (ODE) which describes the movement of samples from a known distribution \( p_\mathrm{init} \) (often, the standard Gaussian) to samples from the unknown distribution \( p_\mathrm{data} \).  Frequently, the vector field required by the ODE is analytically intractable, but it can be estimated effectively using function approximation techniques (such as deep neural networks).  Here, we derive the sampling and training algorithms for a flow matching model, drawing heavily on the pedagogical resource prepared by (Holderrieth).</p>
+
+<h2>Notation</h2>
+
+<p>We write as \( t \) the <em>time</em> variable, which satisfies \( 0 \le t \le 1 \), and we write as \( X_t \in \mathbb{R}^n \) the function that satisfies the ODE.  We write as \( p_t \) the probability distribution over which \( X_t \) is distributed.</p>
+
+<p>Define a <em>vector field</em> \( u_t^\theta : \mathbb{R}^n \rightarrow \mathbb{R}^n \) parameterized by \( \theta \) that defines the ordinary differential equation</p>
+
+<p>\[ \frac{dX_t}{dt} = u_t^\theta(X_t) . \]</p>
+
+<p>Here, the ODE is defined such that \( X_0 \sim p_\mathrm{init} \) and \( X_1 \sim p_\mathrm{data} \).  In English, the ODE <em>interpolates</em> between a selected known distribution \( p_\mathrm{init} \) (for example, a Gaussian distribution) and an unknown "target" distribution \( p_\mathrm{data} \).</p>
+
+<h2>Sampling with an ODE</h2>
+
+<p>Given a way to evaluate \( u_t^\theta(X_t) \), sampling from \( p_\mathrm{data} \) is quite simple.  First, sample \( X_0 \sim p_\mathrm{init} \).  Then, select an iteration count \( k \) and a step size \( h \) such that \( kh = 1 \) (for example, select \( k = 20 \) and \( h = 0.05 \)).  Then, let \( t = 0 \) and, for \( k \) iterations, evaluate</p>
+
+<p>\[ X_{t + h} \gets X_t + h \cdot u_t^\theta(X_t) \]</p>
+
+<p>until \( t = 1 \).  By the definition of \( u_t^\theta \), \( X_1 \) will be distributed according to \( p_\mathrm{data} \).  We see that, given a way to evaluate the vector field \( u_t^\theta \), sampling is trivial... the challenge is determining the vector field given only samples from \( p_\mathrm{data} \), which we will refer to from now on as <em>training examples</em>.</p>
+
+<h2>Constructing the conditional vector field</h2>
+
+<p><em>More coming soon!</em></p>
+
+<h2>Marginalizing the vector field</h2>
+
+<p><em>More coming soon!</em></p>
+
+<h2>Approximating the marginal vector field</h2>
+
+<p><em>More coming soon!</em></p>
+
+<h2>References</h2>
+
+<p>P. Holderrieth and E. Erives. "An Introduction to Flow Matching and Diffusion Models." <em>Generative AI with Stochastic Differential Equations</em>, Massachusetts Institute of Technology. (accessed October 18, 2026)</p></body>
+
+</html>
