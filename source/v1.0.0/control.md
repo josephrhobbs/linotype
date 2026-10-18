@@ -8,6 +8,16 @@ Here, I summarize many concepts in control.  Those experienced in control will n
 
 ## Linear quadratic regulator
 
-The linear quadratic regulator is the quintessential optimal controller.
+The __linear quadratic regulator__ is the quintessential optimal controller.
 
-[Linear quadratic regulator](control/linear-quadratic-regulator)
+[Linear Quadratic Regulator](control/linear-quadratic-regulator)
+
+## Numerical optimal control
+
+Increasingly common in the Age of Information are methods for __numerical optimal control__.  A common paradigm for numerical optimal control is _model-predictive control_, in which the controller solves an optimization problem at each step to determine the next control effort.
+
+[Model-Predictive Control](control/model-predictive-control)
+
+Frequently, methods for model-predictive control require writing a continuous-time problem in terms of a countable number of decision variables.  The process of constructing these formulations is frequently known as __transcription__.  Numerous transcription methods exist, with various benefits and limitations.
+
+[Transcription Methods](control/transcription)
