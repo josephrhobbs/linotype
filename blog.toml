@@ -36,4 +36,5 @@ tag = "analytics.html"
 include = [
     "sprout.pdf",
     "towards-convex-calibration.pdf",
+    "robust-plane-fitting.pdf",
 ]
